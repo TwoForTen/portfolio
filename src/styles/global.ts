@@ -6,6 +6,20 @@ const GlobalStyle = createGlobalStyle`
         padding: 0;
         box-sizing: border-box;
     }
+    html {
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif
+    }
+    a{
+        color: initial;
+        text-decoration: none;
+    }
+    ul{
+        text-decoration: none;
+    }
+    button {
+        border: none;
+        outline: none;
+    }
 `
 
 export default GlobalStyle;
