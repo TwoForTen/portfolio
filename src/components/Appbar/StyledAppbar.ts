@@ -36,7 +36,6 @@ export const ToggleDropdown = styled.button<{active: boolean}>`
   align-items: center;
   transition: 100ms;
   background-color: ${(props) => props.active ? '#fefefe' : 'transparent'};
-  cursor: pointer;
   &:hover {
     background-color: #fefefe;
     box-shadow: 1px 0px 5px rgba(0,0,0,0.04);
