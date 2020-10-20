@@ -1,7 +1,13 @@
 import React from "react";
 import { useTheme } from "styled-components";
 
-import { CallToAction, HeroContainer, HeroText } from "./StyledHero";
+import {
+  CallToAction,
+  HeroContainer,
+  HeroText,
+  StyleDots,
+  Dot,
+} from "./StyledHero";
 import { Typography } from "../../styles/globalComponents";
 
 const Hero = () => {
@@ -19,6 +25,24 @@ const Hero = () => {
         <CallToAction>
           <Typography variant="span">See my work</Typography>
         </CallToAction>
+        <StyleDots>
+          <Dot />
+          <Dot />
+          <Dot />
+          <Dot />
+          <Dot />
+          <Dot />
+          <Dot />
+          <Dot />
+          <Dot />
+          <Dot />
+          <Dot />
+          <Dot />
+          <Dot />
+          <Dot />
+          <Dot />
+          <Dot />
+        </StyleDots>
       </HeroText>
     </HeroContainer>
   );

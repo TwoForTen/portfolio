@@ -18,6 +18,24 @@ export const HeroText = styled.div`
     display: flex;
     flex-direction: column;
     margin-left: 15vw;
+    position: relative;
+`
+
+export const StyleDots = styled.div`
+    position: absolute;
+    display: flex;
+    flex-wrap: wrap;
+    right: -45px;
+    top: -.2rem;
+    max-width: 60px;
+`
+
+export const Dot = styled.div`
+    height: 5px;
+    width: 5px;
+    background-color: ${(props) => props.theme.colors.darkText};
+    border-radius: 50%;
+    margin: 5px;   
 `
 
 export const CallToAction = styled.button`
