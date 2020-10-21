@@ -7,18 +7,22 @@ interface TypographyProps {
   style?: React.CSSProperties;
 }
 
+const StyledTypography = styled.div`
+  color: ${props =>
+    props.color === "primary"
+      ? props.theme.colors.primary
+      : props.theme.colors.darkText};
+`;
+
 export const Typography: React.FC<TypographyProps> = ({
   variant,
   color,
   style,
   children,
 }) => {
-  const StyledTypography = styled(variant)`
-    color: ${props =>
-      color === "primary"
-        ? props.theme.colors.primary
-        : props.theme.colors.darkText};
-  `;
-
-  return <StyledTypography style={style}>{children}</StyledTypography>;
+  return (
+    <StyledTypography as={variant} color={color} style={style}>
+      {children}
+    </StyledTypography>
+  );
 };

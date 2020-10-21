@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useState } from 'react';
+import { Trans, useI18next } from 'gatsby-plugin-react-i18next';
 
 import {
   AppbarContainer,
@@ -8,43 +9,70 @@ import {
   LangButton,
   ToggleDropdown,
   Flag,
-} from "./StyledAppbar";
-import en from "../../assets/en.png";
-import hr from "../../assets/hr.png";
+} from './StyledAppbar';
+import { Typography } from '../../styles/globalComponents';
 
 const Appbar = () => {
   const [toggleLang, setToggleLang] = useState<boolean>(false);
+  const { changeLanguage, languages, language } = useI18next();
+
+  const changeLocale = (lang: string) => {
+    changeLanguage(lang);
+  };
 
   return (
     <AppbarContainer>
       <Navigation>
-        <NavButton>Work</NavButton>
-        <NavButton>About Me</NavButton>
+        <NavButton>
+          <Trans>{`appbar.work`}</Trans>
+        </NavButton>
+        <NavButton>
+          <Trans>{`appbar.about_me`}</Trans>
+        </NavButton>
         <NavButton primary>
-          <strong>Download Resume</strong>
+          <strong>
+            <Trans>{`appbar.download_resume`}</Trans>
+          </strong>
         </NavButton>
         <ToggleDropdown
-          onClick={() => setToggleLang(prev => !prev)}
-          onBlur={() => setToggleLang(false)}
+          onClick={() => setToggleLang((prev) => !prev)}
+          // onBlur={() => setToggleLang(false)}
           active={toggleLang}
         >
-          EN
-          <Flag src={en} />
+          <Typography variant="span">{language.toUpperCase()}</Typography>
+          <Flag src={require(`../../assets/${language}.png`)} />
         </ToggleDropdown>
         {toggleLang && (
           <LangDropdown>
-            <LangButton>
-              EN
-              <Flag src={en} />
-            </LangButton>
-            <LangButton>
-              HR
-              <Flag src={hr} />
-            </LangButton>
+            {languages.map((language) => {
+              return (
+                <LocaleButton
+                  value={language}
+                  src={require(`../../assets/${language}.png`)}
+                  onClick={() => changeLocale(language)}
+                  key={language}
+                />
+              );
+            })}
           </LangDropdown>
         )}
       </Navigation>
     </AppbarContainer>
+  );
+};
+
+interface LocaleButtonProps {
+  value: string;
+  src: string;
+  onClick: () => void;
+}
+
+const LocaleButton: React.FC<LocaleButtonProps> = ({ value, src, onClick }) => {
+  return (
+    <LangButton onClick={onClick}>
+      <Typography variant="span">{value.toUpperCase()}</Typography>
+      <Flag src={src} />
+    </LangButton>
   );
 };
 

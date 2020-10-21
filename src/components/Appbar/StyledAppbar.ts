@@ -64,6 +64,7 @@ export const LangDropdown = styled.div`
 export const LangButton = styled.div`
   display: flex;
   align-items: center;
+  justify-content: center;
   padding: 15px;
   min-width: 120px;
   cursor: pointer;

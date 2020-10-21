@@ -1,0 +1,12 @@
+{
+    "hero": {
+        "title": "entuzijast",
+        "quote": "\"Frontend development je savršeni mix dizajna i logike\"",
+        "button": "Moji projekti"
+    },
+    "appbar": {
+        "work": "Projekti",
+        "about_me": "O meni",
+        "download_resume": "Preuzmi Životopis"
+    }
+}

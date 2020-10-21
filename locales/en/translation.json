@@ -1,0 +1,12 @@
+{
+    "hero": {
+        "title": "enthusiast",
+        "quote": "\"Frontend development is the perfect mixture of design and logic\"",
+        "button": "See my work"
+    },
+    "appbar": {
+        "work": "Work",
+        "about_me": "About Me",
+        "download_resume": "Download Resume"
+    }
+}
