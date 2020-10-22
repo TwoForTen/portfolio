@@ -1,6 +1,6 @@
-import React from "react";
-import { useTheme } from "styled-components";
-import { Trans } from "gatsby-plugin-react-i18next";
+import React from 'react';
+import { useTheme } from 'styled-components';
+import { Trans } from 'gatsby-plugin-react-i18next';
 
 import {
   CallToAction,
@@ -8,8 +8,8 @@ import {
   HeroText,
   StyleDots,
   Dot,
-} from "./StyledHero";
-import { Typography } from "../../styles/globalComponents";
+} from './hero.styled';
+import { Typography } from '../../styles/globalComponents';
 
 const Hero = () => {
   const theme = useTheme();
@@ -18,11 +18,11 @@ const Hero = () => {
     <HeroContainer>
       <HeroText>
         <Typography variant="span">Noel Rostohar</Typography>
-        <Typography variant="h1" style={{ fontSize: "64px" }}>
-          <span style={{ color: theme.colors.primary }}>React</span>{" "}
+        <Typography variant="h1" style={{ fontSize: '64px' }}>
+          <span style={{ color: theme.colors.primary }}>React</span>{' '}
           <Trans>{`hero.title`}</Trans>
         </Typography>
-        <Typography variant="span" style={{ marginTop: "5px" }}>
+        <Typography variant="span" style={{ marginTop: '5px' }}>
           <Trans>{`hero.quote`}</Trans>
         </Typography>
         <CallToAction>

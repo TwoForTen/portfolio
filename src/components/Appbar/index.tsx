@@ -9,7 +9,7 @@ import {
   LangButton,
   ToggleDropdown,
   Flag,
-} from './StyledAppbar';
+} from './appbar.styled';
 import { Typography } from '../../styles/globalComponents';
 
 const Appbar = () => {
