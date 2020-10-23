@@ -32,8 +32,14 @@ const Home: React.FC = (): JSX.Element => {
           <Trans>{`projects`}</Trans>
         </Typography>
         <ProjectContainer>
-          {projects.map((project) => {
-            return <ProjectComponent project={project} key={project.id} />;
+          {projects.map((project, i) => {
+            return (
+              <ProjectComponent
+                justifyEnd={i % 2 !== 0}
+                project={project}
+                key={project.id}
+              />
+            );
           })}
         </ProjectContainer>
       </Layout>

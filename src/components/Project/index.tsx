@@ -11,14 +11,15 @@ import { Typography, Row } from '../../styles/globalComponents';
 
 interface ProjectProps {
   project: Project;
+  justifyEnd: boolean;
 }
 
-const ProjectComponent: React.FC<ProjectProps> = ({ project }) => {
+const ProjectComponent: React.FC<ProjectProps> = ({ project, justifyEnd }) => {
   const { language } = useI18next();
   const theme = useTheme();
 
   return (
-    <ProjectContainer>
+    <ProjectContainer style={{ justifySelf: justifyEnd ? 'end' : 'start' }}>
       <ImageContainer>
         <Image src={process.env.GATSBY_API_URL + project.image.url} />
       </ImageContainer>
