@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Trans, useI18next } from 'gatsby-plugin-react-i18next';
 
 import {
@@ -14,14 +14,28 @@ import { Typography } from '../../styles/globalComponents';
 
 const Appbar = () => {
   const [toggleLang, setToggleLang] = useState<boolean>(false);
+  const [appbarOpacity, setAppbarOpacity] = useState<number>(0);
   const { changeLanguage, languages, language } = useI18next();
 
   const changeLocale = (lang: string) => {
     changeLanguage(lang);
   };
 
+  useEffect(() => {
+    const updateAppbarOpacity = () =>
+      setAppbarOpacity(
+        Math.min(Math.abs(document.body.getBoundingClientRect().y / 100), 0.98)
+      );
+
+    window.addEventListener('scroll', updateAppbarOpacity);
+
+    return () => window.removeEventListener('scroll', updateAppbarOpacity);
+  }, []);
+
   return (
-    <AppbarContainer>
+    <AppbarContainer
+      style={{ backgroundColor: `rgba(240, 240, 240, ${appbarOpacity})` }}
+    >
       <Navigation>
         <NavButton>
           <Trans>{`appbar.work`}</Trans>

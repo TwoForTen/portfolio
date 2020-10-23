@@ -3,7 +3,9 @@ import { DefaultTheme } from 'styled-components'
 const theme: DefaultTheme = {
     colors: {
         primary: "#61DAFB",
-        darkText: "#323A3F",
+        lightGray: '#F2F2F2',
+        darkGray: '#BCB9B9',
+        darkText: "#45535C",
     },
     layout: {
         maxWidth: '1260px',

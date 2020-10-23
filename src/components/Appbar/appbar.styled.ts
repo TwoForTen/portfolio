@@ -4,7 +4,6 @@ import { Theme } from '../../types'
 export const AppbarContainer = styled.div`
   width: 100%;
   height: 60px;
-  /* background-color: #eee; */
   display: flex;
   padding: 0 60px;
   position: fixed;

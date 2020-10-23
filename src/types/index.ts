@@ -5,6 +5,7 @@ export interface Theme {
 }
 
 export interface Technology {
+    id: number;
     tech_name: string;
     tech_image: {
         url: string;
@@ -12,6 +13,7 @@ export interface Technology {
 }
 
 export interface Project {
+    id: number;
     date: string;
     description: string;
     image: {
