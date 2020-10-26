@@ -6,7 +6,20 @@
 
 module.exports = {
   /* Your site config here */
-  plugins: [{
+  plugins: [
+    {
+      resolve: "gatsby-source-graphql",
+      options: {
+        // Arbitrary name for the remote schema Query type
+        typeName: "Strapi",
+        // Field under which the remote schema will be accessible. You'll use this in your Gatsby query
+        fieldName: "strapi",
+        // Url to query from
+        url: "http://localhost:1337/graphql",
+        refreshInterval: 60
+      },
+    },
+    {
     resolve: `gatsby-plugin-styled-components`,
     options: {
       pure: true
@@ -29,6 +42,6 @@ module.exports = {
       },
       pages: []
     }
-  }
+  },
 ],
 }

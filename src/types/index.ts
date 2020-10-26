@@ -12,13 +12,20 @@ export interface Technology {
     };
 }
 
+interface Translation {
+    overview: string;
+    description: string;
+}
+
 export interface Project {
     id: number;
     date: string;
-    description: string;
     image: {
         url: string;
     }
     technologies: Technology[];
     title: string;
+    translations: {
+        [locale: string]: Translation;
+    }
 }

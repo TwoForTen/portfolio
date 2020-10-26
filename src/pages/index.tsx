@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import GlobalStyle from '../styles/global';
 import { Layout, Typography, Row } from '../styles/globalComponents';
 import { Trans } from 'gatsby-plugin-react-i18next';
@@ -7,8 +7,8 @@ import styled from 'styled-components';
 import Appbar from '../components/Appbar';
 import Hero from '../components/Hero';
 import ProjectComponent from '../components/Project';
-import axios from '../axiosInstance';
 import { Project } from '../types';
+import { graphql } from 'gatsby';
 
 const ProjectContainer = styled.div`
   display: grid;
@@ -16,11 +16,12 @@ const ProjectContainer = styled.div`
   grid-gap: 20px;
 `;
 
-const Home: React.FC = (): JSX.Element => {
-  const [projects, setProjects] = useState<Project[]>([]);
-  useEffect(() => {
-    axios.get('/projects').then(({ data }) => setProjects(data));
-  }, []);
+interface Props {
+  data: any;
+}
+
+const Home: React.FC<Props> = ({ data }): JSX.Element => {
+  const { projects } = data.strapi;
 
   return (
     <>
@@ -28,18 +29,12 @@ const Home: React.FC = (): JSX.Element => {
       <Appbar />
       <Hero />
       <Layout>
-        <Typography variant="h1" style={{ margin: '40px 0' }}>
+        <Typography variant="h1" style={{ margin: '40px 0 20px 0' }}>
           <Trans>{`projects`}</Trans>
         </Typography>
         <ProjectContainer>
-          {projects.map((project, i) => {
-            return (
-              <ProjectComponent
-                justifyEnd={i % 2 !== 0}
-                project={project}
-                key={project.id}
-              />
-            );
+          {projects.map((project: Project) => {
+            return <ProjectComponent project={project} key={project.id} />;
           })}
         </ProjectContainer>
       </Layout>
@@ -48,3 +43,35 @@ const Home: React.FC = (): JSX.Element => {
 };
 
 export default Home;
+
+export const query = graphql`
+  query MyQuery {
+    strapi {
+      projects {
+        id
+        image {
+          url
+        }
+        date
+        title
+        technologies {
+          id
+          tech_image {
+            url
+          }
+          tech_name
+        }
+        translations {
+          en {
+            overview
+            description
+          }
+          hr {
+            overview
+            description
+          }
+        }
+      }
+    }
+  }
+`;

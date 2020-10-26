@@ -3,6 +3,7 @@ import { format } from 'date-fns';
 import { enUS, hr } from 'date-fns/locale';
 import { useI18next } from 'gatsby-plugin-react-i18next';
 import { useTheme } from 'styled-components';
+import ReactMarkdown from 'react-markdown';
 
 import TechnologyComponent from '../Technology';
 import { Project } from '../../types';
@@ -11,15 +12,14 @@ import { Typography, Row } from '../../styles/globalComponents';
 
 interface ProjectProps {
   project: Project;
-  justifyEnd: boolean;
 }
 
-const ProjectComponent: React.FC<ProjectProps> = ({ project, justifyEnd }) => {
+const ProjectComponent: React.FC<ProjectProps> = ({ project }) => {
   const { language } = useI18next();
   const theme = useTheme();
 
   return (
-    <ProjectContainer style={{ justifySelf: justifyEnd ? 'end' : 'start' }}>
+    <ProjectContainer>
       <ImageContainer>
         <Image src={process.env.GATSBY_API_URL + project.image.url} />
       </ImageContainer>
@@ -59,9 +59,11 @@ const ProjectComponent: React.FC<ProjectProps> = ({ project, justifyEnd }) => {
           return <TechnologyComponent technology={tech} key={tech.id} />;
         })}
       </Row>
-      <Typography variant="p" style={{ fontSize: '16px' }}>
-        {project.description}
-      </Typography>
+      <div style={{ marginTop: '15px', fontSize: '15px' }}>
+        <ReactMarkdown>
+          {project.translations && project.translations[language].overview}
+        </ReactMarkdown>
+      </div>
     </ProjectContainer>
   );
 };

@@ -11,6 +11,10 @@ export const ProjectContainer = styled.div`
     box-shadow: 2px 4px 15px rgba(0,0,0,0.1);
     margin: 20px 0px;
     cursor: pointer;
+    transition: 300ms;
+    &:hover {
+        transform: translateY(-10px);
+    }
 `
 
 export const ImageContainer = styled.div`

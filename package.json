@@ -21,10 +21,12 @@
     "gatsby": "^2.24.79",
     "gatsby-plugin-react-i18next": "^0.0.27",
     "gatsby-plugin-styled-components": "^3.3.14",
+    "gatsby-source-graphql": "^2.7.6",
     "i18next": "^19.8.2",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
     "react-i18next": "^11.7.3",
+    "react-markdown": "^5.0.2",
     "styled-components": "^5.2.0"
   },
   "devDependencies": {},
