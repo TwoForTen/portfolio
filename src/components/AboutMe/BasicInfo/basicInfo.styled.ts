@@ -4,7 +4,7 @@ export const AvatarContainer = styled.div`
     height: 80px;
     width: 80px;
     object-fit: cover;
-    margin-right: 20px;
+    margin-right: 10px;
     margin-bottom: 10px;
 `
 
@@ -15,5 +15,5 @@ export const Avatar = styled.img`
 `
 
 export const SideInfoSection = styled.div`
-    margin: 25px 0;
+    margin: 15px 0;
 `

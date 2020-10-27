@@ -8,7 +8,7 @@ import ContactItem from './ContactItem';
 
 import { Avatar, AvatarContainer, SideInfoSection } from './basicInfo.styled';
 import { Row, Typography } from '../../../styles/globalComponents';
-import { SectionTitle } from '../aboutMe.styled';
+import { SectionTitle, TitleWithSubtitle } from '../aboutMe.styled';
 
 interface ContactField {
   icon: any;
@@ -39,23 +39,18 @@ const BasicInfo = () => {
         <AvatarContainer>
           <Avatar src="https://picsum.photos/200" />
         </AvatarContainer>
-        <div>
+        <TitleWithSubtitle>
           <Typography variant="h3" style={{ fontWeight: 'bold' }}>
             Noel Denis Rostohar
           </Typography>
           <Typography variant="span">Frontend Developer</Typography>
-        </div>
+        </TitleWithSubtitle>
       </Row>
       <SectionTitle>Basic Info</SectionTitle>
-      <Typography variant="p" style={{ fontSize: '14px' }}>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo illum
-        error vitae inventore qui commodi laborum, cupiditate quia assumenda
-        accusamus voluptas labore sapiente. Ipsum maiores inventore architecto
-        culpa debitis repellendus, labore nulla et praesentium excepturi impedit
-        accusamus perspiciatis tempora quo commodi quod consequatur ipsam velit
-        voluptatem soluta in similique minima modi est! Itaque, nam libero aut
-        culpa dolores debitis officia.
-      </Typography>
+      {/* <Typography variant="p" style={{ fontSize: '14px' }}>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis
+        explicabo maiores sunt voluptatibus repudiandae hic!
+      </Typography> */}
       <SideInfoSection>
         <ul>
           {CONTACT_FIELDS.map((contact) => {
@@ -72,8 +67,12 @@ const BasicInfo = () => {
       <SideInfoSection>
         <SectionTitle>External Links</SectionTitle>
         <Row>
-          <AiFillGithub size={30} />
-          <FiInstagram style={{ marginLeft: '5px' }} color="purple" size={28} />
+          <AiFillGithub size={30} color={theme.colors.darkText} />
+          <FiInstagram
+            style={{ marginLeft: '5px' }}
+            color={theme.colors.darkText}
+            size={28}
+          />
         </Row>
       </SideInfoSection>
     </div>

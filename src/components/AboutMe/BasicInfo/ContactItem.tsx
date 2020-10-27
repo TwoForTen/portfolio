@@ -9,7 +9,7 @@ interface ContactItemProps {
 
 const ContactItem: React.FC<ContactItemProps> = ({ icon: Icon, info }) => {
   return (
-    <li>
+    <li style={{ margin: '15px 0' }}>
       <Row withMargin>
         <Icon />
         <Typography variant="caption" style={{ marginLeft: '10px' }}>

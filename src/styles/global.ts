@@ -25,6 +25,9 @@ const GlobalStyle = createGlobalStyle`
         outline: none;
         cursor: pointer;
     }
+    p {
+        font-size: 14px;
+    }
 `
 
 export default GlobalStyle;

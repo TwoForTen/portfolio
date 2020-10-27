@@ -57,4 +57,5 @@ export const Row = styled.div<RowProps>`
   align-items: center;
   flex-wrap: wrap;
   margin: ${(props) => (props.withMargin ? '10px 0' : '0')};
+  width: 100%;
 `;

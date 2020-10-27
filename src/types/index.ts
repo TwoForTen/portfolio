@@ -29,3 +29,8 @@ export interface Project {
         [locale: string]: Translation;
     }
 }
+
+export interface ExperienceDescription {
+    title: string;
+    description: string;
+}
