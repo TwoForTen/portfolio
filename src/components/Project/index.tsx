@@ -4,6 +4,7 @@ import { enUS, hr } from 'date-fns/locale';
 import { useI18next } from 'gatsby-plugin-react-i18next';
 import { useTheme } from 'styled-components';
 import ReactMarkdown from 'react-markdown';
+import { MdToday } from 'react-icons/md';
 
 import TechnologyComponent from '../Technology';
 import { Project } from '../../types';
@@ -30,16 +31,7 @@ const ProjectComponent: React.FC<ProjectProps> = ({ project }) => {
         {project.title}
       </Typography>
       <Row withMargin>
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 24 24"
-          fill={theme.colors.darkGray}
-          width="18px"
-          height="18px"
-        >
-          <path d="M0 0h24v24H0z" fill="none" />
-          <path d="M20 3h-1V1h-2v2H7V1H5v2H4c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 18H4V8h16v13z" />
-        </svg>
+        <MdToday color={theme.colors.darkGray} size={20} />
         <Typography
           variant="span"
           color="darkGray"
