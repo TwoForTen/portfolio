@@ -33,12 +33,13 @@ const ProjectComponent: React.FC<ProjectProps> = ({ project }) => {
       <Row withMargin>
         <MdToday color={theme.colors.darkGray} size={20} />
         <Typography
-          variant="span"
+          variant="caption"
           color="darkGray"
           style={{
             textTransform: 'capitalize',
             marginLeft: '5px',
             fontWeight: 'lighter',
+            fontSize: '14px',
           }}
         >
           {format(new Date(project.date), 'LLLL, y', {
@@ -51,7 +52,7 @@ const ProjectComponent: React.FC<ProjectProps> = ({ project }) => {
           return <TechnologyComponent technology={tech} key={tech.id} />;
         })}
       </Row>
-      <div style={{ marginTop: '15px', fontSize: '15px' }}>
+      <div style={{ marginTop: '15px', fontSize: '14px' }}>
         <ReactMarkdown>
           {project.translations && project.translations[language].overview}
         </ReactMarkdown>

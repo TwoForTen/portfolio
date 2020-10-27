@@ -47,7 +47,7 @@ const BasicInfo = () => {
         </div>
       </Row>
       <SectionTitle>Basic Info</SectionTitle>
-      <Typography variant="p">
+      <Typography variant="p" style={{ fontSize: '14px' }}>
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo illum
         error vitae inventore qui commodi laborum, cupiditate quia assumenda
         accusamus voluptas labore sapiente. Ipsum maiores inventore architecto
@@ -57,15 +57,17 @@ const BasicInfo = () => {
         culpa dolores debitis officia.
       </Typography>
       <SideInfoSection>
-        {CONTACT_FIELDS.map((contact) => {
-          return (
-            <ContactItem
-              key={contact.info}
-              info={contact.info}
-              icon={() => contact.icon}
-            />
-          );
-        })}
+        <ul>
+          {CONTACT_FIELDS.map((contact) => {
+            return (
+              <ContactItem
+                key={contact.info}
+                info={contact.info}
+                icon={() => contact.icon}
+              />
+            );
+          })}
+        </ul>
       </SideInfoSection>
       <SideInfoSection>
         <SectionTitle>External Links</SectionTitle>

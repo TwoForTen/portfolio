@@ -2,7 +2,17 @@ import React from 'react';
 import styled from 'styled-components';
 
 interface TypographyProps {
-  variant: 'span' | 'p' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'small';
+  variant:
+    | 'span'
+    | 'p'
+    | 'h1'
+    | 'h2'
+    | 'h3'
+    | 'h4'
+    | 'h5'
+    | 'h6'
+    | 'small'
+    | 'caption';
   color?: 'primary' | 'darkText' | 'darkGray';
   style?: React.CSSProperties;
 }

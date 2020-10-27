@@ -9,12 +9,14 @@ interface ContactItemProps {
 
 const ContactItem: React.FC<ContactItemProps> = ({ icon: Icon, info }) => {
   return (
-    <Row withMargin>
-      <Icon />
-      <Typography variant="span" style={{ marginLeft: '10px' }}>
-        {info}
-      </Typography>
-    </Row>
+    <li>
+      <Row withMargin>
+        <Icon />
+        <Typography variant="caption" style={{ marginLeft: '10px' }}>
+          {info}
+        </Typography>
+      </Row>
+    </li>
   );
 };
 

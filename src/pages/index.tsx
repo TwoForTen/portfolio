@@ -9,6 +9,7 @@ import Appbar from '../components/Appbar';
 import Hero from '../components/Hero';
 import ProjectComponent from '../components/Project';
 import BasicInfo from '../components/AboutMe/BasicInfo';
+import Experience from '../components/AboutMe/Experience';
 
 import { Project } from '../types';
 
@@ -53,15 +54,7 @@ const Home: React.FC<Props> = ({ data }): JSX.Element => {
           </Typography>
           <AboutMeGrid>
             <BasicInfo />
-            <div
-              style={{
-                width: '100%',
-                height: '600px',
-                background: 'red',
-                flex: 5,
-                minWidth: '400px',
-              }}
-            />
+            <Experience />
           </AboutMeGrid>
         </section>
       </Layout>
