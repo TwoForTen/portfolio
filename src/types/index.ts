@@ -30,6 +30,17 @@ export interface Project {
     }
 }
 
+export interface Experience {
+    id: string;
+    company_name: string;
+    date_from: string;
+    date_to: string;
+    obligations: ExperienceDescription[];
+    image: {
+        url: string;
+    };
+}
+
 export interface ExperienceDescription {
     title: string;
     description: string;

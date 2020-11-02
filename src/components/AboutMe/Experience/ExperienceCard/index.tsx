@@ -3,7 +3,7 @@ import { format } from 'date-fns';
 import { enUS, hr } from 'date-fns/locale';
 import { useI18next } from 'gatsby-plugin-react-i18next';
 
-import { ExperienceDescription } from '../../../../types';
+import { Experience } from '../../../../types';
 import {
   CardContainer,
   Image,
@@ -15,27 +15,23 @@ import { TitleWithSubtitle } from '../../aboutMe.styled';
 import { Row, Typography } from '../../../../styles/globalComponents';
 
 interface ExperienceCardProps {
-  image?: string;
-  company_name: string;
-  date_from: string;
-  date_to?: string;
-  obligations?: ExperienceDescription[];
+  experience: Experience;
 }
 
-const ExperienceCard: React.FC<ExperienceCardProps> = ({
-  image,
-  company_name,
-  date_from,
-  date_to,
-  obligations,
-}) => {
+const ExperienceCard: React.FC<ExperienceCardProps> = ({ experience }) => {
   const { language } = useI18next();
+  const { company_name, date_to, date_from, obligations, image } = experience;
 
   return (
     <CardContainer>
       <Row>
         <ImageContainer>
-          <Image src="https://picsum.photos/200" />
+          {image?.url && (
+            <Image
+              src={process.env.GATSBY_API_URL + image?.url}
+              alt="company_image"
+            />
+          )}
         </ImageContainer>
         <TitleWithSubtitle>
           <Typography variant="h3" style={{ fontWeight: 'normal' }}>

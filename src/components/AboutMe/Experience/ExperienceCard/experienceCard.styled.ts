@@ -7,13 +7,14 @@ export const CardContainer = styled.div`
 export const ImageContainer = styled.div`
     width: 60px;
     height: 60px;
-    object-fit: cover;
     margin-right: 10px;
+    background-color: ${(props) => props.theme.colors.lightGray};
 `
 
 export const Image = styled.img`
     height: 100%;
     width: 100%;
+    object-fit: cover;
 `
 
 export const ObligationCard = styled.div`

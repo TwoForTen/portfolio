@@ -30,7 +30,7 @@ interface Props {
 }
 
 const Home: React.FC<Props> = ({ data }): JSX.Element => {
-  const { projects } = data.strapi;
+  const { projects, experiences } = data.strapi;
 
   return (
     <>
@@ -54,7 +54,7 @@ const Home: React.FC<Props> = ({ data }): JSX.Element => {
           </Typography> */}
           <AboutMeGrid>
             <BasicInfo />
-            <Experience />
+            <Experience experiences={[...experiences].reverse()} />
           </AboutMeGrid>
         </section>
       </Layout>
@@ -89,6 +89,25 @@ export const query = graphql`
           hr {
             overview
             description
+          }
+        }
+      }
+      experiences {
+        id
+        company_name
+        date_from
+        date_to
+        image {
+          url
+        }
+        obligations {
+          translations {
+            en {
+              description
+            }
+            hr {
+              description
+            }
           }
         }
       }
