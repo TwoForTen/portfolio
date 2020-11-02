@@ -3,6 +3,7 @@ import { MdMailOutline, MdPhoneIphone, MdLocationOn } from 'react-icons/md';
 import { AiFillGithub } from 'react-icons/ai';
 import { FiInstagram } from 'react-icons/fi';
 import { useTheme } from 'styled-components';
+import { Trans } from 'gatsby-plugin-react-i18next';
 
 import ContactItem from './ContactItem';
 
@@ -46,11 +47,9 @@ const BasicInfo = () => {
           <Typography variant="span">Frontend Developer</Typography>
         </TitleWithSubtitle>
       </Row>
-      <SectionTitle>Basic Info</SectionTitle>
-      {/* <Typography variant="p" style={{ fontSize: '14px' }}>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis
-        explicabo maiores sunt voluptatibus repudiandae hic!
-      </Typography> */}
+      <SectionTitle>
+        <Trans>{'about_me.basic_info'}</Trans>
+      </SectionTitle>
       <SideInfoSection>
         <ul>
           {CONTACT_FIELDS.map((contact) => {
@@ -65,7 +64,9 @@ const BasicInfo = () => {
         </ul>
       </SideInfoSection>
       <SideInfoSection>
-        <SectionTitle>External Links</SectionTitle>
+        <SectionTitle>
+          <Trans>{'about_me.external_links'}</Trans>
+        </SectionTitle>
         <Row>
           <AiFillGithub size={30} color={theme.colors.darkText} />
           <FiInstagram

@@ -1,4 +1,5 @@
 import React from 'react';
+import { Trans } from 'gatsby-plugin-react-i18next';
 
 import ExperienceCard from './ExperienceCard';
 import { SectionTitle } from '../aboutMe.styled';
@@ -11,7 +12,9 @@ interface ExperienceProps {
 const ExperienceComponent: React.FC<ExperienceProps> = ({ experiences }) => {
   return (
     <div style={{ flex: 5, minWidth: '300px' }}>
-      <SectionTitle>Experience And Education</SectionTitle>
+      <SectionTitle>
+        <Trans>{'about_me.experience'}</Trans>
+      </SectionTitle>
       {experiences.map((experience) => {
         return <ExperienceCard experience={experience} key={experience.id} />;
       })}

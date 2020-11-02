@@ -10,5 +10,9 @@
         "download_resume": "Preuzmi Životopis"
     },
     "projects": "Projekti",
-    "about_me": "O meni"
+    "about_me": {
+        "basic_info": "Osnovni Podaci",
+        "external_links": "Vanjske Poveznice",
+        "experience": "Iskustvo I Edukacija"
+    }
 }

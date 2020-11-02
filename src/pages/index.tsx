@@ -49,9 +49,6 @@ const Home: React.FC<Props> = ({ data }): JSX.Element => {
           </ProjectContainer>
         </section>
         <section style={{ marginTop: '50px' }}>
-          {/* <Typography variant="h1" style={{ margin: '40px 0 20px 0' }}>
-            <Trans>{`about_me`}</Trans>
-          </Typography> */}
           <AboutMeGrid>
             <BasicInfo />
             <Experience experiences={[...experiences].reverse()} />

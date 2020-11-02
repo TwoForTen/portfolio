@@ -40,7 +40,7 @@ const ExperienceCard: React.FC<ExperienceCardProps> = ({ experience }) => {
           <Typography
             variant="span"
             color="darkGray"
-            style={{ textTransform: 'capitalize' }}
+            style={{ textTransform: 'capitalize', fontWeight: 'lighter' }}
           >
             {`${format(new Date(date_from), 'LLLL, y', {
               locale: language === 'en' ? enUS : hr,

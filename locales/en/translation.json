@@ -10,5 +10,9 @@
         "download_resume": "Download Resume"
     },
     "projects": "Projects",
-    "about_me": "About Me"
+    "about_me": {
+        "basic_info": "Basic Info",
+        "external_links": "External Links",
+        "experience": "Experience And Education"
+    }
 }
