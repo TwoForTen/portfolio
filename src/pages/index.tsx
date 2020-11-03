@@ -1,9 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import GlobalStyle from '../styles/global';
-import { Layout, Typography, Row } from '../styles/globalComponents';
+import { Layout, Typography } from '../styles/globalComponents';
 import { Trans } from 'gatsby-plugin-react-i18next';
 import styled from 'styled-components';
 import { graphql } from 'gatsby';
+import { Helmet } from 'react-helmet';
 
 import Appbar from '../components/Appbar';
 import Hero from '../components/Hero';
@@ -64,8 +65,16 @@ const Home: React.FC<Props> = ({ data }): JSX.Element => {
       };
     });
 
+  useEffect(() => {
+    if (projectModalStatus.open) document.body.style.overflow = 'hidden';
+    else document.body.style.overflow = 'auto';
+  }, [projectModalStatus.open]);
+
   return (
     <>
+      <Helmet>
+        <title>Noel Rostohar - Frontend Developer</title>
+      </Helmet>
       <GlobalStyle />
       <Appbar />
       <Hero />
