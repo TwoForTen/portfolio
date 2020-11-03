@@ -79,7 +79,7 @@ const Home: React.FC<Props> = ({ data }): JSX.Element => {
       <Appbar />
       <Hero />
       <Layout>
-        <section>
+        <section id="projects">
           <Typography variant="h1" style={{ margin: '40px 0 20px 0' }}>
             <Trans>{`projects`}</Trans>
           </Typography>
@@ -95,7 +95,7 @@ const Home: React.FC<Props> = ({ data }): JSX.Element => {
             })}
           </ProjectContainer>
         </section>
-        <section style={{ marginTop: '50px' }}>
+        <section id="about_me" style={{ marginTop: '50px' }}>
           <AboutMeGrid>
             <BasicInfo />
             <Experience experiences={[...experiences].reverse()} />

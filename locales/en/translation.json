@@ -13,6 +13,14 @@
     "about_me": {
         "basic_info": "Basic Info",
         "external_links": "External Links",
-        "experience": "Experience And Education"
+        "experience": "Experience And Education",
+        "languages": {
+            "english": "English",
+            "croatian": "Croatian"
+        },
+        "proficiency": {
+            "native": "Native",
+            "professional": "Professional Proficiency"
+        }
     }
 }

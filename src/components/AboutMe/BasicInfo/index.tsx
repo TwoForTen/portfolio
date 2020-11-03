@@ -47,10 +47,10 @@ const BasicInfo = () => {
           <Typography variant="span">Frontend Developer</Typography>
         </TitleWithSubtitle>
       </Row>
-      <SectionTitle>
-        <Trans>{'about_me.basic_info'}</Trans>
-      </SectionTitle>
       <SideInfoSection>
+        <SectionTitle>
+          <Trans>{'about_me.basic_info'}</Trans>
+        </SectionTitle>
         <ul>
           {CONTACT_FIELDS.map((contact) => {
             return (
@@ -61,6 +61,27 @@ const BasicInfo = () => {
               />
             );
           })}
+        </ul>
+      </SideInfoSection>
+      <SideInfoSection>
+        <SectionTitle>Languages</SectionTitle>
+        <ul>
+          <li style={{ marginBottom: '10px' }}>
+            <Typography variant="p">
+              <span style={{ color: theme.colors.primary }}>
+                <Trans>{'about_me.languages.croatian'}</Trans>
+              </span>{' '}
+              - <Trans>{'about_me.proficiency.native'}</Trans>
+            </Typography>
+          </li>
+          <li>
+            <Typography variant="p">
+              <span style={{ color: theme.colors.primary }}>
+                <Trans>{'about_me.languages.english'}</Trans>
+              </span>{' '}
+              - <Trans>{'about_me.proficiency.professional'}</Trans>
+            </Typography>
+          </li>
         </ul>
       </SideInfoSection>
       <SideInfoSection>

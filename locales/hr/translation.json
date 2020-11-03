@@ -13,6 +13,14 @@
     "about_me": {
         "basic_info": "Osnovni Podaci",
         "external_links": "Vanjske Poveznice",
-        "experience": "Iskustvo I Edukacija"
+        "experience": "Iskustvo I Edukacija",
+        "languages": {
+            "english": "Engleski",
+            "croatian": "Hrvatski"
+        },
+        "proficiency": {
+            "native": "Materinji Jezik",
+            "professional": "Profesionalni Nivo"
+        }
     }
 }

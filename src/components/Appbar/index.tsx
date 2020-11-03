@@ -38,10 +38,14 @@ const Appbar = () => {
     >
       <Navigation>
         <NavButton>
-          <Trans>{`appbar.work`}</Trans>
+          <a href="#projects">
+            <Trans>{`appbar.work`}</Trans>
+          </a>
         </NavButton>
         <NavButton>
-          <Trans>{`appbar.about_me`}</Trans>
+          <a href="#about_me">
+            <Trans>{`appbar.about_me`}</Trans>
+          </a>
         </NavButton>
         <NavButton primary>
           <strong>
