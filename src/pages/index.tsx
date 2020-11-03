@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import GlobalStyle from '../styles/global';
 import { Layout, Typography, Row } from '../styles/globalComponents';
 import { Trans } from 'gatsby-plugin-react-i18next';
@@ -10,6 +10,7 @@ import Hero from '../components/Hero';
 import ProjectComponent from '../components/Project';
 import BasicInfo from '../components/AboutMe/BasicInfo';
 import Experience from '../components/AboutMe/Experience';
+import ProjectModal from '../components/ProjectModal';
 
 import { Project } from '../types';
 
@@ -29,8 +30,39 @@ interface Props {
   data: any;
 }
 
+export interface ProjectModalStatus {
+  open: boolean;
+  project: Project;
+}
+
+export const EMPTY_PROJECT: Project = {
+  date: '',
+  technologies: [],
+  id: -1,
+  image: {
+    url: '',
+  },
+  title: '',
+  translations: {},
+};
+
 const Home: React.FC<Props> = ({ data }): JSX.Element => {
   const { projects, experiences } = data.strapi;
+
+  const [projectModalStatus, setProjectModalStatus] = useState<
+    ProjectModalStatus
+  >({
+    open: false,
+    project: EMPTY_PROJECT,
+  });
+
+  const openProjectModal = (project: Project) =>
+    setProjectModalStatus((prev) => {
+      return {
+        open: !prev.open,
+        project,
+      };
+    });
 
   return (
     <>
@@ -44,7 +76,13 @@ const Home: React.FC<Props> = ({ data }): JSX.Element => {
           </Typography>
           <ProjectContainer>
             {projects.map((project: Project) => {
-              return <ProjectComponent project={project} key={project.id} />;
+              return (
+                <ProjectComponent
+                  onClick={() => openProjectModal(project)}
+                  project={project}
+                  key={project.id}
+                />
+              );
             })}
           </ProjectContainer>
         </section>
@@ -54,6 +92,12 @@ const Home: React.FC<Props> = ({ data }): JSX.Element => {
             <Experience experiences={[...experiences].reverse()} />
           </AboutMeGrid>
         </section>
+        {projectModalStatus.open && (
+          <ProjectModal
+            project={projectModalStatus.project}
+            setProjectModalStatus={setProjectModalStatus}
+          />
+        )}
       </Layout>
     </>
   );

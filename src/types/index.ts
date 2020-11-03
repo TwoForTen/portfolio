@@ -30,6 +30,10 @@ export interface Project {
     }
 }
 
+export interface ProjectProp {
+    project: Project;
+}
+
 export interface Experience {
     id: string;
     company_name: string;

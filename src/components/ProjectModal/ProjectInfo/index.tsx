@@ -1,30 +1,21 @@
 import React from 'react';
+import { MdToday } from 'react-icons/md';
 import { format } from 'date-fns';
 import { enUS, hr } from 'date-fns/locale';
 import { useI18next } from 'gatsby-plugin-react-i18next';
 import { useTheme } from 'styled-components';
 import ReactMarkdown from 'react-markdown';
-import { MdToday } from 'react-icons/md';
 
-import TechnologyComponent from '../Technology';
-import { Project } from '../../types';
-import { Image, ImageContainer, ProjectContainer } from './project.styled';
-import { Typography, Row } from '../../styles/globalComponents';
+import TechnologyComponent from '../../Technology';
+import { ProjectInfoContainer } from './projectInfo.styled';
+import { ProjectProp } from '../../../types';
+import { Typography, Row } from '../../../styles/globalComponents';
 
-interface ProjectProps {
-  project: Project;
-  [rest: string]: any;
-}
-
-const ProjectComponent: React.FC<ProjectProps> = ({ project, ...rest }) => {
+const ProjectInfo: React.FC<ProjectProp> = ({ project }) => {
   const { language } = useI18next();
   const theme = useTheme();
-
   return (
-    <ProjectContainer {...rest}>
-      <ImageContainer>
-        <Image src={process.env.GATSBY_API_URL + project.image.url} />
-      </ImageContainer>
+    <ProjectInfoContainer>
       <Typography
         variant="h2"
         style={{ marginTop: '5px', fontWeight: 'normal' }}
@@ -55,11 +46,11 @@ const ProjectComponent: React.FC<ProjectProps> = ({ project, ...rest }) => {
       </Row>
       <div style={{ marginTop: '15px', fontSize: '14px' }}>
         <ReactMarkdown>
-          {project.translations && project.translations[language].overview}
+          {project.translations && project.translations[language].description}
         </ReactMarkdown>
       </div>
-    </ProjectContainer>
+    </ProjectInfoContainer>
   );
 };
 
-export default ProjectComponent;
+export default ProjectInfo;
