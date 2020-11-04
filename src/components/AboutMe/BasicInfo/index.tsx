@@ -64,7 +64,9 @@ const BasicInfo = () => {
         </ul>
       </SideInfoSection>
       <SideInfoSection>
-        <SectionTitle>Languages</SectionTitle>
+        <SectionTitle>
+          <Trans>{'about_me.languages.languages'}</Trans>
+        </SectionTitle>
         <ul>
           <li style={{ marginBottom: '10px' }}>
             <Typography variant="p">

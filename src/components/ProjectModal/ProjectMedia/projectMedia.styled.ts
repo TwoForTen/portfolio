@@ -12,6 +12,7 @@ export const ProjectMedia = styled.div`
     background-color: #000;
     min-width: 350px;
     flex: 2;
+    overflow: hidden;
 `
 interface SlideIndicatorProps {
     active: boolean;
@@ -49,12 +50,13 @@ export const ArrowIndicatorContainer = styled.div`
 `
 
 export const MediaContainer = styled.div`
-    height: auto;
-    width: 100%;
+    width: auto;
+    height: 100%;
 `
 
 export const Media = styled.img`
     height: 100%;
+    max-height: 580px;
     width: 100%;
     object-fit: contain;
     user-select: none;

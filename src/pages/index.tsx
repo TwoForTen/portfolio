@@ -43,6 +43,7 @@ export const EMPTY_PROJECT: Project = {
   image: {
     url: '',
   },
+  media: [],
   title: '',
   translations: {},
 };
@@ -120,6 +121,9 @@ export const query = graphql`
       projects {
         id
         image {
+          url
+        }
+        media {
           url
         }
         date

@@ -25,7 +25,7 @@ const ProjectInfo: React.FC<ProjectProp> = ({ project }) => {
       <Row withMargin>
         <MdToday color={theme.colors.darkGray} size={20} />
         <Typography
-          variant="caption"
+          variant="span"
           color="darkGray"
           style={{
             textTransform: 'capitalize',

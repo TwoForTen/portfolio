@@ -38,7 +38,7 @@ export const Dot = styled.div`
     margin: 5px;   
 `
 
-export const CallToAction = styled.button`
+export const CallToAction = styled.a`
     padding: 10px;
     text-align: center;
     border-radius: 5px;

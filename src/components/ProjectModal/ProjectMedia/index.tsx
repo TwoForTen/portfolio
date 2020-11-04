@@ -10,14 +10,10 @@ import {
   Media,
   MediaContainer,
 } from './projectMedia.styled';
+import { ProjectProp } from '../../../types';
 
-interface ProjectMediaProps {
-  media?: {
-    url: string;
-  }[];
-}
-
-const ProjectMediaComponent: React.FC<ProjectMediaProps> = ({ media }) => {
+const ProjectMediaComponent: React.FC<ProjectProp> = ({ project }) => {
+  const { media } = project;
   const [mediaIndex, setMediaIndex] = useState<number>(0);
 
   const goRight = () => setMediaIndex((prev) => prev + 1);
@@ -31,27 +27,27 @@ const ProjectMediaComponent: React.FC<ProjectMediaProps> = ({ media }) => {
           size={40}
           color="#fff"
           cursor="pointer"
+          visibility={mediaIndex !== 0 ? 'visible' : 'hidden'}
         />
         <IoIosArrowForward
           onClick={goRight}
           size={40}
           color="#fff"
           cursor="pointer"
+          visibility={mediaIndex !== media.length - 1 ? 'visible' : 'hidden'}
         />
       </ArrowIndicatorContainer>
       <SwipableViews index={mediaIndex}>
-        <MediaContainer>
-          <Media src="https://picsum.photos/1920/1080" />
-        </MediaContainer>
-        <MediaContainer>
-          <Media src="https://picsum.photos/1920/1080" />
-        </MediaContainer>
-        <MediaContainer>
-          <Media src="https://picsum.photos/1920/1080" />
-        </MediaContainer>
+        {media.map((img, i) => {
+          return (
+            <MediaContainer>
+              <Media src={process.env.GATSBY_API_URL + img.url} />
+            </MediaContainer>
+          );
+        })}
       </SwipableViews>
       <IndicatorContainer>
-        {new Array(3).fill(undefined).map((_, i) => (
+        {media.map((_, i) => (
           <SlideIndicator active={i === mediaIndex} key={i} />
         ))}
       </IndicatorContainer>

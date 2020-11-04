@@ -1,6 +1,6 @@
 import React from 'react';
 
-import ProjectImages from './ProjectMedia';
+import ProjectMedia from './ProjectMedia';
 import ProjectInfo from './ProjectInfo';
 import { Backdrop, ModalContainer } from './projectModal.styled';
 import { ProjectProp } from '../../types';
@@ -23,7 +23,7 @@ const ProjectModal: React.FC<ProjectModalProps> = ({
       }
     >
       <ModalContainer onClick={(e) => e.stopPropagation()}>
-        <ProjectImages />
+        <ProjectMedia project={project} />
         <ProjectInfo project={project} />
       </ModalContainer>
     </Backdrop>

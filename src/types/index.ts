@@ -23,6 +23,9 @@ export interface Project {
     image: {
         url: string;
     }
+    media: {
+        url: string;
+    }[]
     technologies: Technology[];
     title: string;
     translations: {

@@ -25,8 +25,8 @@ const Hero = () => {
         <Typography variant="span" style={{ marginTop: '5px' }}>
           <Trans>{`hero.quote`}</Trans>
         </Typography>
-        <CallToAction>
-          <Typography variant="span">
+        <CallToAction href="#projects">
+          <Typography variant="small">
             <Trans>{`hero.button`}</Trans>
           </Typography>
         </CallToAction>
