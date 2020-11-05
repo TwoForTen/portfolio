@@ -1,9 +1,12 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Trans, useI18next } from 'gatsby-plugin-react-i18next';
+import { AiOutlineMenu } from 'react-icons/ai';
+import { useTheme } from 'styled-components';
 
 import {
   AppbarContainer,
-  Navigation,
+  DesktopNavigation,
+  MobileNavigation,
   NavButton,
   LangDropdown,
   LangButton,
@@ -12,14 +15,19 @@ import {
 } from './appbar.styled';
 import { Typography } from '../../styles/globalComponents';
 
-const Appbar = () => {
+interface AppbarProps {
+  setDrawerOpen: React.Dispatch<React.SetStateAction<boolean>>;
+}
+
+const Appbar: React.FC<AppbarProps> = ({ setDrawerOpen }) => {
   const [toggleLang, setToggleLang] = useState<boolean>(false);
   const [appbarOpacity, setAppbarOpacity] = useState<number>(0);
   const { changeLanguage, languages, language } = useI18next();
+  const theme = useTheme();
 
-  const changeLocale = (lang: string) => {
-    changeLanguage(lang);
-  };
+  const toggleDrawer = (): void => setDrawerOpen((prev) => !prev);
+
+  const changeLocale = (lang: string): Promise<void> => changeLanguage(lang);
 
   useEffect(() => {
     const updateAppbarOpacity = () =>
@@ -36,7 +44,7 @@ const Appbar = () => {
     <AppbarContainer
       style={{ backgroundColor: `rgba(240, 240, 240, ${appbarOpacity})` }}
     >
-      <Navigation>
+      <DesktopNavigation>
         <NavButton>
           <a href="#projects">
             <Trans>{`appbar.work`}</Trans>
@@ -74,7 +82,15 @@ const Appbar = () => {
             })}
           </LangDropdown>
         )}
-      </Navigation>
+      </DesktopNavigation>
+      <MobileNavigation>
+        <AiOutlineMenu
+          size={24}
+          color={theme.colors.darkText}
+          cursor="pointer"
+          onClick={toggleDrawer}
+        />
+      </MobileNavigation>
     </AppbarContainer>
   );
 };

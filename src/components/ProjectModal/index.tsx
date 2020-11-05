@@ -2,7 +2,8 @@ import React from 'react';
 
 import ProjectMedia from './ProjectMedia';
 import ProjectInfo from './ProjectInfo';
-import { Backdrop, ModalContainer } from './projectModal.styled';
+import { ModalContainer } from './projectModal.styled';
+import { Backdrop } from '../../styles/globalComponents';
 import { ProjectProp } from '../../types';
 import { ProjectModalStatus, EMPTY_PROJECT } from '../../pages';
 

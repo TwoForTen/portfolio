@@ -12,6 +12,7 @@ import ProjectComponent from '../components/Project';
 import BasicInfo from '../components/AboutMe/BasicInfo';
 import Experience from '../components/AboutMe/Experience';
 import ProjectModal from '../components/ProjectModal';
+import Drawer from '../components/Drawer';
 
 import { Project } from '../types';
 
@@ -51,6 +52,7 @@ export const EMPTY_PROJECT: Project = {
 const Home: React.FC<Props> = ({ data }): JSX.Element => {
   const { projects, experiences } = data.strapi;
 
+  const [drawerOpen, setDrawerOpen] = useState<boolean>(false);
   const [projectModalStatus, setProjectModalStatus] = useState<
     ProjectModalStatus
   >({
@@ -77,7 +79,7 @@ const Home: React.FC<Props> = ({ data }): JSX.Element => {
         <title>Noel Rostohar - Frontend Developer</title>
       </Helmet>
       <GlobalStyle />
-      <Appbar />
+      <Appbar setDrawerOpen={setDrawerOpen} />
       <Hero />
       <Layout>
         <section id="projects">
@@ -108,6 +110,7 @@ const Home: React.FC<Props> = ({ data }): JSX.Element => {
             setProjectModalStatus={setProjectModalStatus}
           />
         )}
+        <Drawer drawerOpen={drawerOpen} />
       </Layout>
     </>
   );

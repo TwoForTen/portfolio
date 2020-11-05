@@ -1,16 +1,16 @@
 import styled from "styled-components"
 import { Theme } from '../../types'
 
-export const AppbarContainer = styled.div`
+export const AppbarContainer = styled.header`
   width: 100%;
-  height: 60px;
+  height: ${(props) => props.theme.layout.appbarHeight};
   display: flex;
-  padding: 0 60px;
+  padding: 0 20px;
   position: fixed;
   z-index: 100;
 `
 
-export const Navigation = styled.div`
+export const DesktopNavigation = styled.nav`
   width: ${({theme}: Theme) => theme.layout.maxWidth};
   max-width: ${({theme}: Theme) => theme.layout.maxWidth};
   display: flex;
@@ -20,6 +20,26 @@ export const Navigation = styled.div`
   position: relative;
   overflow: visible !important;
   height: 100%;
+
+  @media only screen and (max-width: 768px) {
+    display: none;
+  }
+`
+
+export const MobileNavigation = styled.div`
+  width: ${({theme}: Theme) => theme.layout.maxWidth};
+  max-width: ${({theme}: Theme) => theme.layout.maxWidth};
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin: 0 auto;
+  position: relative;
+  overflow: visible !important;
+  height: 100%;
+
+  @media only screen and (min-width: 768px) {
+    display: none;
+  }
 `
 
 export const NavButton = styled.p<{primary?: boolean}>`

@@ -10,6 +10,8 @@ declare module 'styled-components' {
     },
     layout: {
         maxWidth: string;
+        appbarHeight: string;
+        drawerWidth: string;
     }
 }
 }

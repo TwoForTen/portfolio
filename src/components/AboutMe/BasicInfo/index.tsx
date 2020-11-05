@@ -21,15 +21,33 @@ const BasicInfo = () => {
 
   const CONTACT_FIELDS: ContactField[] = [
     {
-      icon: <MdMailOutline color={theme.colors.primary} size={20} />,
+      icon: (
+        <MdMailOutline
+          color={theme.colors.primary}
+          size={20}
+          style={{ marginRight: '10px' }}
+        />
+      ),
       info: 'noel.rostohar@gmail.com',
     },
     {
-      icon: <MdPhoneIphone color={theme.colors.primary} size={20} />,
+      icon: (
+        <MdPhoneIphone
+          color={theme.colors.primary}
+          size={20}
+          style={{ marginRight: '10px' }}
+        />
+      ),
       info: '+385 99 839 6795',
     },
     {
-      icon: <MdLocationOn color={theme.colors.primary} size={20} />,
+      icon: (
+        <MdLocationOn
+          color={theme.colors.primary}
+          size={20}
+          style={{ marginRight: '10px' }}
+        />
+      ),
       info: 'Zagreb, Croatia',
     },
   ];

@@ -7,10 +7,17 @@ const GlobalStyle = createGlobalStyle`
         box-sizing: border-box;
     }
     html {
-        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        overflow-x: hidden;
     }
     body {
         background-color: #fdfdfd;
+        overflow-x: hidden;
+        transition: 300ms;
+
+        @media only screen and (min-width: 768px) {
+            margin-left: 0 !important;
+        }
     }
     a{
         color: initial;

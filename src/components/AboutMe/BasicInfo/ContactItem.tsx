@@ -12,9 +12,7 @@ const ContactItem: React.FC<ContactItemProps> = ({ icon: Icon, info }) => {
     <li style={{ margin: '15px 0' }}>
       <Row withMargin>
         <Icon />
-        <Typography variant="span" style={{ marginLeft: '10px' }}>
-          {info}
-        </Typography>
+        <Typography variant="span">{info}</Typography>
       </Row>
     </li>
   );

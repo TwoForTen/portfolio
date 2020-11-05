@@ -9,6 +9,8 @@ const theme: DefaultTheme = {
     },
     layout: {
         maxWidth: '1260px',
+        appbarHeight: '60px',
+        drawerWidth: '225px',
     }
 }
 
