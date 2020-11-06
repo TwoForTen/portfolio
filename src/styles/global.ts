@@ -13,11 +13,6 @@ const GlobalStyle = createGlobalStyle`
     body {
         background-color: #fdfdfd;
         overflow-x: hidden;
-        transition: 300ms;
-
-        @media only screen and (min-width: 768px) {
-            margin-left: 0 !important;
-        }
     }
     a{
         color: initial;

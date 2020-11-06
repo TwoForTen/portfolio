@@ -9,6 +9,7 @@ import {
   ArrowIndicatorContainer,
   Media,
   MediaContainer,
+  BackgroundBlur,
 } from './projectMedia.styled';
 import { ProjectProp } from '../../../types';
 
@@ -16,33 +17,42 @@ const ProjectMediaComponent: React.FC<ProjectProp> = ({ project }) => {
   const { media } = project;
   const [mediaIndex, setMediaIndex] = useState<number>(0);
 
-  const goRight = () => setMediaIndex((prev) => prev + 1);
-  const goLeft = () => setMediaIndex((prev) => prev - 1);
+  const swipeRight = () => setMediaIndex((prev) => prev + 1);
+  const swipeLeft = () => setMediaIndex((prev) => prev - 1);
 
   return (
     <ProjectMedia>
       <ArrowIndicatorContainer>
         <IoIosArrowBack
-          onClick={goLeft}
+          onClick={swipeLeft}
           size={40}
           color="#fff"
           cursor="pointer"
           visibility={mediaIndex !== 0 ? 'visible' : 'hidden'}
         />
         <IoIosArrowForward
-          onClick={goRight}
+          onClick={swipeRight}
           size={40}
           color="#fff"
           cursor="pointer"
           visibility={mediaIndex !== media.length - 1 ? 'visible' : 'hidden'}
         />
       </ArrowIndicatorContainer>
-      <SwipableViews index={mediaIndex}>
-        {media.map((img, i) => {
+      <SwipableViews index={mediaIndex} maxLength={media.length}>
+        {media.map((img) => {
           return (
-            <MediaContainer>
-              <Media src={process.env.GATSBY_API_URL + img.url} />
-            </MediaContainer>
+            <React.Fragment key={img.url}>
+              <BackgroundBlur
+                style={{
+                  backgroundImage: `url(${
+                    process.env.GATSBY_API_URL + img.url
+                  })`,
+                }}
+              />
+              <MediaContainer>
+                <Media src={process.env.GATSBY_API_URL + img.url} />
+              </MediaContainer>
+            </React.Fragment>
           );
         })}
       </SwipableViews>

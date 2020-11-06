@@ -14,6 +14,7 @@ import {
   Flag,
 } from './appbar.styled';
 import { Typography } from '../../styles/globalComponents';
+import useChangeLocale from '../../hooks/useChangeLocale';
 
 interface AppbarProps {
   setDrawerOpen: React.Dispatch<React.SetStateAction<boolean>>;
@@ -22,12 +23,11 @@ interface AppbarProps {
 const Appbar: React.FC<AppbarProps> = ({ setDrawerOpen }) => {
   const [toggleLang, setToggleLang] = useState<boolean>(false);
   const [appbarOpacity, setAppbarOpacity] = useState<number>(0);
-  const { changeLanguage, languages, language } = useI18next();
+  const { languages, language } = useI18next();
   const theme = useTheme();
+  const changeLocale = useChangeLocale();
 
   const toggleDrawer = (): void => setDrawerOpen((prev) => !prev);
-
-  const changeLocale = (lang: string): Promise<void> => changeLanguage(lang);
 
   useEffect(() => {
     const updateAppbarOpacity = () =>
@@ -70,13 +70,13 @@ const Appbar: React.FC<AppbarProps> = ({ setDrawerOpen }) => {
         </ToggleDropdown>
         {toggleLang && (
           <LangDropdown>
-            {languages.map((language) => {
+            {languages.map((lang) => {
               return (
                 <LocaleButton
-                  value={language}
-                  src={require(`../../assets/${language}.png`)}
-                  onClick={() => changeLocale(language)}
-                  key={language}
+                  value={lang}
+                  src={require(`../../assets/${lang}.png`)}
+                  onClick={() => changeLocale(lang)}
+                  key={lang}
                 />
               );
             })}

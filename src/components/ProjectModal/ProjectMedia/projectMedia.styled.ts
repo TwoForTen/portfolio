@@ -7,8 +7,6 @@ export const ProjectMedia = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
-    background-repeat: no-repeat;
-    background-size: cover;
     background-color: #000;
     min-width: 350px;
     flex: 2;
@@ -52,6 +50,20 @@ export const ArrowIndicatorContainer = styled.div`
 export const MediaContainer = styled.div`
     width: auto;
     height: 100%;
+    position: relative;
+    z-index: 1;
+`
+
+export const BackgroundBlur = styled.div`
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    filter: blur(30px);
+    opacity: 0.5;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: 0;
 `
 
 export const Media = styled.img`

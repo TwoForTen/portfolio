@@ -25,7 +25,7 @@ const ProjectContainer = styled.div`
 const AboutMeGrid = styled.div`
   display: flex;
   flex-wrap: wrap;
-  grid-gap: 40px;
+  grid-gap: 20px;
 `;
 
 interface Props {
@@ -110,7 +110,7 @@ const Home: React.FC<Props> = ({ data }): JSX.Element => {
             setProjectModalStatus={setProjectModalStatus}
           />
         )}
-        <Drawer drawerOpen={drawerOpen} />
+        <Drawer onClick={() => setDrawerOpen(false)} drawerOpen={drawerOpen} />
       </Layout>
     </>
   );
