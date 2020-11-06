@@ -1,7 +1,8 @@
 import styled from "styled-components"
+import {motion} from 'framer-motion'
 import { Theme } from '../../types'
 
-export const AppbarContainer = styled.header`
+export const AppbarContainer = styled(motion.header)`
   width: 100%;
   height: ${(props) => props.theme.layout.appbarHeight};
   display: flex;

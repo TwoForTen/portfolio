@@ -1,5 +1,12 @@
 import styled from 'styled-components';
 
+export const BasicInfoContainer = styled.div`
+    flex: 2;
+    position: sticky;
+    top: ${(props) => `calc(${props.theme.layout.appbarHeight} + 10px)`};
+    align-self: flex-start;
+`
+
 export const AvatarContainer = styled.div`
     height: 80px;
     width: 80px;

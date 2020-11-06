@@ -1,5 +1,6 @@
-import styled from 'styled-components';
+import styled, {keyframes} from 'styled-components';
 import heroimg from '../../assets/hero.jpg';
+import { motion } from 'framer-motion'
 
 export const HeroContainer = styled.div`
     height: 85vh;
@@ -26,11 +27,11 @@ export const StyleDots = styled.div`
     display: flex;
     flex-wrap: wrap;
     right: -45px;
-    top: -.2rem;
+    top: -1.4rem;
     max-width: 60px;
 `
 
-export const Dot = styled.div`
+export const Dot = styled(motion.div)`
     height: 5px;
     width: 5px;
     background-color: ${(props) => props.theme.colors.darkText};
@@ -45,4 +46,19 @@ export const CallToAction = styled.a`
     max-width: 10rem;
     margin-top: 3rem;
     background-color: ${(props) => props.theme.colors.primary};
+`
+
+const rotation = keyframes`
+    from {
+        transform: rotate(0deg)
+    } to {
+        transform: rotate(360deg)
+    }
+`
+
+export const ReactAnimation = styled(motion.img)`
+    position: absolute;
+    left: -10px;
+    margin-top: 10px;
+    animation: ${rotation} 2s infinite linear;
 `

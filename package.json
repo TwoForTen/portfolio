@@ -20,6 +20,7 @@
     "axios": "^0.20.0",
     "babel-plugin-styled-components": "^1.11.1",
     "date-fns": "^2.16.1",
+    "framer-motion": "^2.9.4",
     "gatsby": "^2.24.79",
     "gatsby-plugin-react-helmet": "^3.3.14",
     "gatsby-plugin-react-i18next": "^0.0.27",

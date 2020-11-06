@@ -7,7 +7,12 @@ import { Trans } from 'gatsby-plugin-react-i18next';
 
 import ContactItem from './ContactItem';
 
-import { Avatar, AvatarContainer, SideInfoSection } from './basicInfo.styled';
+import {
+  Avatar,
+  AvatarContainer,
+  SideInfoSection,
+  BasicInfoContainer,
+} from './basicInfo.styled';
 import { Row, Typography } from '../../../styles/globalComponents';
 import { SectionTitle, TitleWithSubtitle } from '../aboutMe.styled';
 
@@ -53,7 +58,7 @@ const BasicInfo = () => {
   ];
 
   return (
-    <div style={{ flex: 2 }}>
+    <BasicInfoContainer>
       <Row withMargin>
         <AvatarContainer>
           <Avatar src="https://picsum.photos/200" />
@@ -117,7 +122,7 @@ const BasicInfo = () => {
           />
         </Row>
       </SideInfoSection>
-    </div>
+    </BasicInfoContainer>
   );
 };
 

@@ -31,4 +31,5 @@ export const Flags = styled.div`
 export const Flag = styled.img`
     height: 22px;
     width: auto;
+    cursor: pointer;
 `

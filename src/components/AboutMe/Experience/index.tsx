@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useRef, useEffect } from 'react';
 import { Trans } from 'gatsby-plugin-react-i18next';
+import { useAnimation } from 'framer-motion';
 
 import ExperienceCard from './ExperienceCard';
 import { SectionTitle } from '../aboutMe.styled';
@@ -15,9 +16,11 @@ const ExperienceComponent: React.FC<ExperienceProps> = ({ experiences }) => {
       <SectionTitle>
         <Trans>{'about_me.experience'}</Trans>
       </SectionTitle>
-      {experiences.map((experience) => {
-        return <ExperienceCard experience={experience} key={experience.id} />;
-      })}
+      <div>
+        {experiences.map((experience) => {
+          return <ExperienceCard experience={experience} key={experience.id} />;
+        })}
+      </div>
     </div>
   );
 };

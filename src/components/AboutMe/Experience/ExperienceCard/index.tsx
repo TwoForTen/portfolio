@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useRef, useEffect } from 'react';
 import { format } from 'date-fns';
 import { enUS, hr } from 'date-fns/locale';
 import { useI18next } from 'gatsby-plugin-react-i18next';
+import { useAnimation } from 'framer-motion';
 
 import { Experience } from '../../../../types';
 import {
@@ -19,11 +20,44 @@ interface ExperienceCardProps {
 }
 
 const ExperienceCard: React.FC<ExperienceCardProps> = ({ experience }) => {
-  const { language } = useI18next();
   const { company_name, date_to, date_from, obligations, image } = experience;
 
+  const { language } = useI18next();
+  const expRef = useRef<HTMLDivElement>(null);
+  const animation = useAnimation();
+
+  const variants = {
+    inactive: {
+      opacity: 0,
+    },
+    active: {
+      opacity: 1,
+    },
+  };
+
+  useEffect(() => {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) animation.start('active');
+        else animation.start('inactive');
+      });
+    }, {});
+
+    if (expRef.current) observer.observe(expRef.current);
+
+    return () => {
+      if (expRef.current) observer.unobserve(expRef.current);
+    };
+  }, [expRef]);
+
   return (
-    <CardContainer>
+    <CardContainer
+      variants={variants}
+      initial="inactive"
+      animate={animation}
+      transition={{ duration: 1 }}
+      ref={expRef}
+    >
       <Row>
         <ImageContainer>
           {image?.url && (

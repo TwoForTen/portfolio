@@ -43,6 +43,9 @@ const Appbar: React.FC<AppbarProps> = ({ setDrawerOpen }) => {
   return (
     <AppbarContainer
       style={{ backgroundColor: `rgba(240, 240, 240, ${appbarOpacity})` }}
+      initial={{ y: `-${theme.layout.appbarHeight}` }}
+      animate={{ y: 0 }}
+      transition={{ duration: 0.8, type: 'spring', damping: 10 }}
     >
       <DesktopNavigation>
         <NavButton>
