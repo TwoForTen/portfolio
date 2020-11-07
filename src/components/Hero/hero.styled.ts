@@ -20,6 +20,10 @@ export const HeroText = styled.div`
     flex-direction: column;
     margin-left: 15vw;
     position: relative;
+
+    @media screen and (max-width: 768px) {
+        margin-left: 0;
+    }
 `
 
 export const StyleDots = styled.div`
@@ -39,13 +43,14 @@ export const Dot = styled(motion.div)`
     margin: 5px;   
 `
 
-export const CallToAction = styled.a`
+export const CallToAction = styled(motion.div)`
     padding: 10px;
     text-align: center;
     border-radius: 5px;
     max-width: 10rem;
     margin-top: 3rem;
     background-color: ${(props) => props.theme.colors.primary};
+    cursor: pointer;
 `
 
 const rotation = keyframes`

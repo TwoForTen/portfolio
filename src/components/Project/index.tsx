@@ -40,7 +40,6 @@ const ProjectComponent: React.FC<ProjectProps> = ({ project, ...rest }) => {
             textTransform: 'capitalize',
             marginLeft: '5px',
             fontWeight: 'lighter',
-            fontSize: '14px',
           }}
         >
           {format(new Date(project.date), 'LLLL, y', {
