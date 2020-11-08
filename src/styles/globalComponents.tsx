@@ -1,6 +1,5 @@
 import React from 'react';
 import styled from 'styled-components';
-import { motion } from 'framer-motion';
 
 interface TypographyProps {
   variant:
@@ -61,7 +60,7 @@ export const Row = styled.div<RowProps>`
   width: 100%;
 `;
 
-export const Backdrop = styled(motion.div)`
+export const Backdrop = styled.div`
   height: 100vh;
   width: 100vw;
   background-color: rgba(0, 0, 0, 0.7);

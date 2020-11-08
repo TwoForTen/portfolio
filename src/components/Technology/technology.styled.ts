@@ -1,6 +1,7 @@
 import styled from 'styled-components';
+import {motion} from 'framer-motion'
 
-export const TechnologyContainer = styled.div`
+export const TechnologyContainer = styled(motion.div)`
     padding: 5px 10px;
     background-color: ${(props) => props.theme.colors.lightGray};
     border-radius: 50px;

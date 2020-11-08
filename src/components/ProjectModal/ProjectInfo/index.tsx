@@ -5,6 +5,7 @@ import { enUS, hr } from 'date-fns/locale';
 import { useI18next } from 'gatsby-plugin-react-i18next';
 import { useTheme } from 'styled-components';
 import ReactMarkdown from 'react-markdown';
+import { motion } from 'framer-motion';
 
 import TechnologyComponent from '../../Technology';
 import { ProjectInfoContainer } from './projectInfo.styled';
@@ -40,15 +41,26 @@ const ProjectInfo: React.FC<ProjectProp> = ({ project }) => {
         </Typography>
       </Row>
       <Row>
-        {project.technologies.map((tech) => {
-          return <TechnologyComponent technology={tech} key={tech.id} />;
+        {project.technologies.map((tech, index) => {
+          return (
+            <TechnologyComponent
+              technology={tech}
+              delay={index / 5}
+              key={tech.id}
+            />
+          );
         })}
       </Row>
-      <div style={{ marginTop: '15px', fontSize: '14px' }}>
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        style={{ marginTop: '15px', fontSize: '14px' }}
+        transition={{ delay: 0.5 }}
+      >
         <ReactMarkdown>
           {project.translations && project.translations[language].description}
         </ReactMarkdown>
-      </div>
+      </motion.div>
     </ProjectInfoContainer>
   );
 };

@@ -16,28 +16,31 @@ import { ProjectProp } from '../../../types';
 const ProjectMediaComponent: React.FC<ProjectProp> = ({ project }) => {
   const { media } = project;
   const [mediaIndex, setMediaIndex] = useState<number>(0);
+  const [mediaLoaded, setMediaLoaded] = useState<boolean>(false);
 
   const swipeRight = () => setMediaIndex((prev) => prev + 1);
   const swipeLeft = () => setMediaIndex((prev) => prev - 1);
 
   return (
     <ProjectMedia>
-      <ArrowIndicatorContainer>
-        <IoIosArrowBack
-          onClick={swipeLeft}
-          size={40}
-          color="#fff"
-          cursor="pointer"
-          visibility={mediaIndex !== 0 ? 'visible' : 'hidden'}
-        />
-        <IoIosArrowForward
-          onClick={swipeRight}
-          size={40}
-          color="#fff"
-          cursor="pointer"
-          visibility={mediaIndex !== media.length - 1 ? 'visible' : 'hidden'}
-        />
-      </ArrowIndicatorContainer>
+      {mediaLoaded && (
+        <ArrowIndicatorContainer>
+          <IoIosArrowBack
+            onClick={swipeLeft}
+            size={40}
+            color="#fff"
+            cursor="pointer"
+            visibility={mediaIndex !== 0 ? 'visible' : 'hidden'}
+          />
+          <IoIosArrowForward
+            onClick={swipeRight}
+            size={40}
+            color="#fff"
+            cursor="pointer"
+            visibility={mediaIndex !== media.length - 1 ? 'visible' : 'hidden'}
+          />
+        </ArrowIndicatorContainer>
+      )}
       <SwipableViews index={mediaIndex} maxLength={media.length}>
         {media.map((img) => {
           return (
@@ -50,8 +53,20 @@ const ProjectMediaComponent: React.FC<ProjectProp> = ({ project }) => {
                 }}
               />
               <MediaContainer>
-                <Media src={process.env.GATSBY_API_URL + img.url} />
+                <Media
+                  onLoad={() => setMediaLoaded(true)}
+                  style={{ visibility: mediaLoaded ? 'visible' : 'hidden' }}
+                  src={process.env.GATSBY_API_URL + img.url}
+                />
               </MediaContainer>
+              {!mediaLoaded && (
+                <div
+                  style={{
+                    height: '100vh',
+                    backgroundColor: 'red',
+                  }}
+                ></div>
+              )}
             </React.Fragment>
           );
         })}

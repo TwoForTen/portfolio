@@ -5,12 +5,12 @@ export const ProjectContainer = styled(motion.div)`
     max-width: 591px;
     min-width: 300px;
     width: fit-content;
-    height: fit-content;
+    height: 100%;
     padding: 20px;
     background-color: #fff;
     border-radius: 5px;
     box-shadow: 2px 4px 15px rgba(0,0,0,0.1);
-    margin: 20px 0px;
+    margin: 5px 0px;
     cursor: pointer;
     transition: 300ms;
     &:hover {

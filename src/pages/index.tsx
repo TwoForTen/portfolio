@@ -5,7 +5,6 @@ import { Trans } from 'gatsby-plugin-react-i18next';
 import styled from 'styled-components';
 import { graphql } from 'gatsby';
 import { Helmet } from 'react-helmet';
-import { AnimatePresence } from 'framer-motion';
 
 import Appbar from '../components/Appbar';
 import Hero from '../components/Hero';
@@ -113,14 +112,12 @@ const Home: React.FC<Props> = ({ data }): JSX.Element => {
             <Experience experiences={[...experiences].reverse()} />
           </AboutMeGrid>
         </section>
-        <AnimatePresence>
-          {projectModalStatus.open && (
-            <ProjectModal
-              project={projectModalStatus.project}
-              setProjectModalStatus={setProjectModalStatus}
-            />
-          )}
-        </AnimatePresence>
+        {projectModalStatus.open && (
+          <ProjectModal
+            project={projectModalStatus.project}
+            setProjectModalStatus={setProjectModalStatus}
+          />
+        )}
         <Drawer onClick={() => setDrawerOpen(false)} drawerOpen={drawerOpen} />
       </Layout>
     </>

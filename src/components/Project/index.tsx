@@ -1,10 +1,11 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import { format } from 'date-fns';
 import { enUS, hr } from 'date-fns/locale';
 import { useI18next } from 'gatsby-plugin-react-i18next';
 import { useTheme } from 'styled-components';
 import ReactMarkdown from 'react-markdown';
 import { MdToday } from 'react-icons/md';
+import { motion, useAnimation } from 'framer-motion';
 
 import TechnologyComponent from '../Technology';
 import { Project } from '../../types';
@@ -19,9 +20,35 @@ interface ProjectProps {
 const ProjectComponent: React.FC<ProjectProps> = ({ project, ...rest }) => {
   const { language } = useI18next();
   const theme = useTheme();
+  const animation = useAnimation();
+  const projectRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            animation.start({ opacity: 1, y: 0 });
+          }
+        });
+      },
+      { rootMargin: `0px 0px -${projectRef.current?.offsetHeight}px 0px` }
+    );
+
+    if (projectRef.current) observer.observe(projectRef.current);
+
+    return () => {
+      if (projectRef.current) observer.unobserve(projectRef.current);
+    };
+  }, [animation, projectRef]);
 
   return (
-    <ProjectContainer {...rest} layoutId={project.id.toString()}>
+    <ProjectContainer
+      ref={projectRef}
+      {...rest}
+      initial={{ opacity: 0, y: 20 }}
+      animate={animation}
+    >
       <ImageContainer>
         <Image src={process.env.GATSBY_API_URL + project.image.url} />
       </ImageContainer>
@@ -48,8 +75,14 @@ const ProjectComponent: React.FC<ProjectProps> = ({ project, ...rest }) => {
         </Typography>
       </Row>
       <Row>
-        {project.technologies.map((tech) => {
-          return <TechnologyComponent technology={tech} key={tech.id} />;
+        {project.technologies.map((tech, index) => {
+          return (
+            <TechnologyComponent
+              technology={tech}
+              delay={index / 3}
+              key={tech.id}
+            />
+          );
         })}
       </Row>
       <div style={{ marginTop: '15px', fontSize: '14px' }}>
