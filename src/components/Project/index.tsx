@@ -21,7 +21,7 @@ const ProjectComponent: React.FC<ProjectProps> = ({ project, ...rest }) => {
   const theme = useTheme();
 
   return (
-    <ProjectContainer {...rest}>
+    <ProjectContainer {...rest} layoutId={project.id.toString()}>
       <ImageContainer>
         <Image src={process.env.GATSBY_API_URL + project.image.url} />
       </ImageContainer>

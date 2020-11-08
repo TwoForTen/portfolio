@@ -59,7 +59,7 @@ export const BackgroundBlur = styled.div`
     background-size: cover;
     background-position: center;
     filter: blur(30px);
-    opacity: 0.5;
+    opacity: 0.3;
     width: 100%;
     height: 100%;
     position: absolute;

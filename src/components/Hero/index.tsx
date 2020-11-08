@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useTheme } from 'styled-components';
 import { Trans } from 'gatsby-plugin-react-i18next';
-import { motion, useAnimation, useViewportScroll } from 'framer-motion';
+import { motion, useAnimation } from 'framer-motion';
 
 import reactIcon from '../../assets/react_icon.png';
 
@@ -18,7 +18,6 @@ import { Typography } from '../../styles/globalComponents';
 const Hero = () => {
   const theme = useTheme();
   const animation = useAnimation();
-  const { scrollYProgress } = useViewportScroll();
 
   useEffect(() => {
     (async function () {
@@ -37,7 +36,6 @@ const Hero = () => {
             animate={animation}
             transition={{ duration: 0.8, delay: 0.8 }}
             src={reactIcon}
-            style={{ height: `calc(${scrollYProgress} * 100)` }}
             height={65}
           />
           <motion.div

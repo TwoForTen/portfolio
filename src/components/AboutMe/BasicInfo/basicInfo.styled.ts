@@ -5,6 +5,11 @@ export const BasicInfoContainer = styled.div`
     position: sticky;
     top: ${(props) => `calc(${props.theme.layout.appbarHeight} + 10px)`};
     align-self: flex-start;
+
+    @media only screen and (max-width: 768px) {
+        position: relative;
+        top: 0;
+    }
 `
 
 export const AvatarContainer = styled.div`
