@@ -3,6 +3,8 @@ import { format } from 'date-fns';
 import { enUS, hr } from 'date-fns/locale';
 import { useI18next } from 'gatsby-plugin-react-i18next';
 import { useAnimation } from 'framer-motion';
+import ReactMarkdown from 'react-markdown';
+import { motion } from 'framer-motion';
 
 import { Experience } from '../../../../types';
 import {
@@ -29,9 +31,11 @@ const ExperienceCard: React.FC<ExperienceCardProps> = ({ experience }) => {
   const variants = {
     inactive: {
       opacity: 0,
+      x: 30,
     },
     active: {
       opacity: 1,
+      x: 0,
     },
   };
 
@@ -51,13 +55,7 @@ const ExperienceCard: React.FC<ExperienceCardProps> = ({ experience }) => {
   }, [expRef]);
 
   return (
-    <CardContainer
-      variants={variants}
-      initial="inactive"
-      animate={animation}
-      transition={{ duration: 1 }}
-      ref={expRef}
-    >
+    <CardContainer>
       <Row>
         <ImageContainer>
           {image?.url && (
@@ -88,18 +86,39 @@ const ExperienceCard: React.FC<ExperienceCardProps> = ({ experience }) => {
           </Typography>
         </TitleWithSubtitle>
       </Row>
-      <ObligationCard>
-        {obligations?.map((obligation) => {
+      <ObligationCard ref={expRef}>
+        {obligations?.map((obligation, i) => {
           return (
-            <>
+            <motion.div
+              style={{
+                marginBottom: i !== obligations.length - 1 ? '30px' : '0',
+              }}
+              key={obligation.id}
+              variants={variants}
+              initial="inactive"
+              animate={animation}
+              transition={{ delay: 0.3 + i / obligations.length }}
+            >
               <Typography
                 variant="h3"
-                style={{ fontWeight: 'normal', marginBottom: '10px' }}
+                style={{
+                  fontWeight: 'normal',
+                  marginBottom: '10px',
+                  fontSize: '16px',
+                }}
               >
                 {obligation.title}
               </Typography>
-              <Typography variant="p">{obligation.description}</Typography>
-            </>
+              <Typography
+                variant="span"
+                color="darkGray"
+                style={{ fontWeight: 300 }}
+              >
+                <ReactMarkdown>
+                  {obligation.translations[language].description}
+                </ReactMarkdown>
+              </Typography>
+            </motion.div>
           );
         })}
       </ObligationCard>

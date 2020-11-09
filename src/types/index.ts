@@ -49,6 +49,11 @@ export interface Experience {
 }
 
 export interface ExperienceDescription {
+    id: string;
     title: string;
-    description: string;
+    translations: {
+        [locale: string]: {
+            description: string;
+        }
+    }
 }

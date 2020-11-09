@@ -25,7 +25,6 @@ const ProjectContainer = styled.div`
 const AboutMeGrid = styled.div`
   display: flex;
   flex-wrap: wrap;
-  grid-gap: 20px;
 `;
 
 interface Props {
@@ -166,6 +165,8 @@ export const query = graphql`
           url
         }
         obligations {
+          id
+          title
           translations {
             en {
               description

@@ -3,7 +3,7 @@ import styled from 'styled-components'
 export const ProjectMedia = styled.div`
     width: 100%;
     height: 100%;
-    min-height: 300px;
+    min-height: 560px;
     position: relative;
     display: flex;
     justify-content: center;

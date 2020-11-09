@@ -32,7 +32,7 @@ const ProjectComponent: React.FC<ProjectProps> = ({ project, ...rest }) => {
           }
         });
       },
-      { rootMargin: `0px 0px -${projectRef.current?.offsetHeight}px 0px` }
+      { rootMargin: `0px 0px -${projectRef.current?.clientHeight}px 0px` }
     );
 
     if (projectRef.current) observer.observe(projectRef.current);

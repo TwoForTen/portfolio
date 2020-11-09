@@ -1,7 +1,6 @@
 import styled from 'styled-components';
-import {motion} from 'framer-motion';
 
-export const CardContainer = styled(motion.div)`
+export const CardContainer = styled.div`
     margin: 20px 0;
 `
 

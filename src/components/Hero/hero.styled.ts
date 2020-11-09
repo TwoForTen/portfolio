@@ -4,7 +4,7 @@ import { motion } from 'framer-motion'
 
 export const HeroContainer = styled.div`
     height: 85vh;
-    width: 100%;
+    width: 100vw;
     overflow: hidden;
     background-image: ${`url(${heroimg})`};
     background-position: center;

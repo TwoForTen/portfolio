@@ -12,7 +12,7 @@ interface ExperienceProps {
 
 const ExperienceComponent: React.FC<ExperienceProps> = ({ experiences }) => {
   return (
-    <div style={{ flex: 5, minWidth: '500px' }}>
+    <div style={{ flex: 5 }}>
       <SectionTitle>
         <Trans>{'about_me.experience'}</Trans>
       </SectionTitle>

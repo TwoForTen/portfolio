@@ -59,14 +59,6 @@ const ProjectMediaComponent: React.FC<ProjectProp> = ({ project }) => {
                   src={process.env.GATSBY_API_URL + img.url}
                 />
               </MediaContainer>
-              {!mediaLoaded && (
-                <div
-                  style={{
-                    height: '100vh',
-                    backgroundColor: 'red',
-                  }}
-                ></div>
-              )}
             </React.Fragment>
           );
         })}

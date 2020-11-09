@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import {motion} from 'framer-motion'
 
 export const ProjectContainer = styled(motion.div)`
-    max-width: 591px;
+    /* max-width: 591px; */
     min-width: 300px;
     width: fit-content;
     height: 100%;
