@@ -46,7 +46,7 @@ const Hero = () => {
           >
             <Typography
               variant="h1"
-              style={{ fontSize: 'clamp(44px, 8vw, 64px)' }}
+              style={{ fontSize: 'clamp(28px, 8vw, 64px)' }}
             >
               <span style={{ color: theme.colors.primary }}>React</span>{' '}
               <Trans>{`hero.title`}</Trans>

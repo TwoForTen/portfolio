@@ -1,5 +1,5 @@
 import React from 'react';
-import { MdToday } from 'react-icons/md';
+import { MdToday, MdFullscreen, MdFullscreenExit } from 'react-icons/md';
 import { format } from 'date-fns';
 import { enUS, hr } from 'date-fns/locale';
 import { useI18next } from 'gatsby-plugin-react-i18next';
@@ -8,21 +8,47 @@ import ReactMarkdown from 'react-markdown';
 import { motion } from 'framer-motion';
 
 import TechnologyComponent from '../../Technology';
-import { ProjectInfoContainer } from './projectInfo.styled';
+import { ProjectInfoContainer, TitleRow } from './projectInfo.styled';
 import { ProjectProp } from '../../../types';
 import { Typography, Row } from '../../../styles/globalComponents';
 
-const ProjectInfo: React.FC<ProjectProp> = ({ project }) => {
+interface ProjectInfoProps extends ProjectProp {
+  fullscreen: boolean;
+  setFullscreen: React.Dispatch<React.SetStateAction<boolean>>;
+}
+
+const ProjectInfo: React.FC<ProjectInfoProps> = ({
+  project,
+  fullscreen,
+  setFullscreen,
+}) => {
   const { language } = useI18next();
   const theme = useTheme();
   return (
-    <ProjectInfoContainer>
-      <Typography
-        variant="h2"
-        style={{ marginTop: '5px', fontWeight: 'normal' }}
-      >
-        {project.title}
-      </Typography>
+    <ProjectInfoContainer fullscreen={fullscreen}>
+      <TitleRow>
+        <Typography
+          variant="h2"
+          style={{ marginTop: '5px', fontWeight: 'normal' }}
+        >
+          {project.title}
+        </Typography>
+        {!fullscreen ? (
+          <MdFullscreen
+            size={26}
+            color={theme.colors.darkText}
+            onClick={() => setFullscreen(true)}
+            cursor="pointer"
+          />
+        ) : (
+          <MdFullscreenExit
+            size={26}
+            color={theme.colors.darkText}
+            onClick={() => setFullscreen(false)}
+            cursor="pointer"
+          />
+        )}
+      </TitleRow>
       <Row withMargin>
         <MdToday color={theme.colors.darkGray} size={20} />
         <Typography

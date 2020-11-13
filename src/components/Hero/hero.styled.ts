@@ -13,6 +13,7 @@ export const HeroContainer = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
+    padding: 0 20px;
 `
 
 export const HeroText = styled.div`

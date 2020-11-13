@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from 'react';
+import React, { useRef, useEffect, useState } from 'react';
 import { format } from 'date-fns';
 import { enUS, hr } from 'date-fns/locale';
 import { useI18next } from 'gatsby-plugin-react-i18next';
@@ -10,8 +10,10 @@ import { Experience } from '../../../../types';
 import {
   CardContainer,
   Image,
+  ImagePlaceholder,
   ImageContainer,
   ObligationCard,
+  ReadMoreButton,
 } from './experienceCard.styled';
 import { TitleWithSubtitle } from '../../aboutMe.styled';
 
@@ -20,6 +22,8 @@ import { Row, Typography } from '../../../../styles/globalComponents';
 interface ExperienceCardProps {
   experience: Experience;
 }
+
+const MAX_DESCRIPTION: number = 30;
 
 const ExperienceCard: React.FC<ExperienceCardProps> = ({ experience }) => {
   const { company_name, date_to, date_from, obligations, image } = experience;
@@ -43,7 +47,6 @@ const ExperienceCard: React.FC<ExperienceCardProps> = ({ experience }) => {
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) animation.start('active');
-        else animation.start('inactive');
       });
     }, {});
 
@@ -52,17 +55,19 @@ const ExperienceCard: React.FC<ExperienceCardProps> = ({ experience }) => {
     return () => {
       if (expRef.current) observer.unobserve(expRef.current);
     };
-  }, [expRef]);
+  }, [expRef, animation]);
 
   return (
     <CardContainer>
       <Row>
         <ImageContainer>
-          {image?.url && (
+          {image?.url ? (
             <Image
               src={process.env.GATSBY_API_URL + image?.url}
               alt="company_image"
             />
+          ) : (
+            <ImagePlaceholder />
           )}
         </ImageContainer>
         <TitleWithSubtitle>
@@ -102,7 +107,7 @@ const ExperienceCard: React.FC<ExperienceCardProps> = ({ experience }) => {
               <Typography
                 variant="h3"
                 style={{
-                  fontWeight: 'normal',
+                  fontWeight: 500,
                   marginBottom: '10px',
                   fontSize: '16px',
                 }}
@@ -114,15 +119,46 @@ const ExperienceCard: React.FC<ExperienceCardProps> = ({ experience }) => {
                 color="darkGray"
                 style={{ fontWeight: 300 }}
               >
-                <ReactMarkdown>
-                  {obligation.translations[language].description}
-                </ReactMarkdown>
+                <ExperienceDescription
+                  description={
+                    obligation?.translations[language]?.description || ''
+                  }
+                />
               </Typography>
             </motion.div>
           );
         })}
       </ObligationCard>
     </CardContainer>
+  );
+};
+
+const ExperienceDescription: React.FC<{ description: string }> = ({
+  description,
+}) => {
+  const [fullDescription, setFullDescription] = useState<boolean>(
+    description.split(' ').length < MAX_DESCRIPTION
+  );
+
+  return (
+    <>
+      {!fullDescription ? (
+        <div>
+          <ReactMarkdown>
+            {description
+              .split(' ')
+              .slice(0, MAX_DESCRIPTION)
+              .join(' ')
+              .concat('...')}
+          </ReactMarkdown>
+          <ReadMoreButton onClick={() => setFullDescription(true)}>
+            READ MORE
+          </ReadMoreButton>
+        </div>
+      ) : (
+        <ReactMarkdown>{description}</ReactMarkdown>
+      )}
+    </>
   );
 };
 

@@ -13,7 +13,14 @@ import {
 } from './projectMedia.styled';
 import { ProjectProp } from '../../../types';
 
-const ProjectMediaComponent: React.FC<ProjectProp> = ({ project }) => {
+interface ProjectMediaProps extends ProjectProp {
+  fullscreen: boolean;
+}
+
+const ProjectMediaComponent: React.FC<ProjectMediaProps> = ({
+  project,
+  fullscreen,
+}) => {
   const { media } = project;
   const [mediaIndex, setMediaIndex] = useState<number>(0);
   const [mediaLoaded, setMediaLoaded] = useState<boolean>(false);
@@ -22,7 +29,7 @@ const ProjectMediaComponent: React.FC<ProjectProp> = ({ project }) => {
   const swipeLeft = () => setMediaIndex((prev) => prev - 1);
 
   return (
-    <ProjectMedia>
+    <ProjectMedia fullscreen={fullscreen}>
       {mediaLoaded && (
         <ArrowIndicatorContainer>
           <IoIosArrowBack
@@ -41,7 +48,13 @@ const ProjectMediaComponent: React.FC<ProjectProp> = ({ project }) => {
           />
         </ArrowIndicatorContainer>
       )}
-      <SwipableViews index={mediaIndex} maxLength={media.length}>
+      <SwipableViews
+        index={mediaIndex}
+        maxLength={media.length}
+        onChangeIndex={(index) => {
+          setMediaIndex(index);
+        }}
+      >
         {media.map((img) => {
           return (
             <React.Fragment key={img.url}>
