@@ -65,26 +65,27 @@ const Appbar: React.FC<AppbarProps> = ({ setDrawerOpen }) => {
         </NavButton>
         <ToggleDropdown
           onClick={() => setToggleLang((prev) => !prev)}
-          // onBlur={() => setToggleLang(false)}
+          onBlur={() => setToggleLang(false)}
           active={toggleLang}
         >
           <Typography variant="span">{language.toUpperCase()}</Typography>
           <Flag src={require(`../../assets/${language}.png`)} />
+
+          {toggleLang && (
+            <LangDropdown>
+              {languages.map((lang) => {
+                return (
+                  <LocaleButton
+                    value={lang}
+                    src={require(`../../assets/${lang}.png`)}
+                    onClick={() => changeLocale(lang)}
+                    key={lang}
+                  />
+                );
+              })}
+            </LangDropdown>
+          )}
         </ToggleDropdown>
-        {toggleLang && (
-          <LangDropdown>
-            {languages.map((lang) => {
-              return (
-                <LocaleButton
-                  value={lang}
-                  src={require(`../../assets/${lang}.png`)}
-                  onClick={() => changeLocale(lang)}
-                  key={lang}
-                />
-              );
-            })}
-          </LangDropdown>
-        )}
       </DesktopNavigation>
       <MobileNavigation>
         <AiOutlineMenu

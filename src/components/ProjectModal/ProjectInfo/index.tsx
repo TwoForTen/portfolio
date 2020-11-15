@@ -83,7 +83,7 @@ const ProjectInfo: React.FC<ProjectInfoProps> = ({
         style={{ marginTop: '15px', fontSize: '14px' }}
         transition={{ delay: 0.5 }}
       >
-        <ReactMarkdown>
+        <ReactMarkdown allowDangerousHtml>
           {project.translations && project.translations[language].description}
         </ReactMarkdown>
       </motion.div>

@@ -5,7 +5,7 @@ import { useI18next } from 'gatsby-plugin-react-i18next';
 import { useTheme } from 'styled-components';
 import ReactMarkdown from 'react-markdown';
 import { MdToday } from 'react-icons/md';
-import { motion, useAnimation } from 'framer-motion';
+import { useAnimation } from 'framer-motion';
 
 import TechnologyComponent from '../Technology';
 import { Project } from '../../types';
