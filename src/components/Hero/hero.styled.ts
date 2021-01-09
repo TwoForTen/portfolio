@@ -1,17 +1,10 @@
 import styled, {keyframes} from 'styled-components';
-import heroimg from '../../../static/hero.jpg';
 import { motion } from 'framer-motion'
 
 export const HeroContainer = styled.div`
-    /* height: 60vh; */
     max-height: 100vh;
     width: 100vw;
     overflow: hidden;
-    /* background-image: ${`url(${heroimg})`};
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover; */
-    /* background: #f7fdff; */
     background: #fff;
     display: flex;
     flex-wrap: wrap;
