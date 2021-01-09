@@ -1,6 +1,5 @@
-import React, { useRef, useEffect } from 'react';
+import React from 'react';
 import { Trans } from 'gatsby-plugin-react-i18next';
-import { useAnimation } from 'framer-motion';
 
 import ExperienceCard from './ExperienceCard';
 import { SectionTitle } from '../aboutMe.styled';
@@ -23,6 +22,10 @@ const ExperienceComponent: React.FC<ExperienceProps> = ({ experiences }) => {
       </div>
     </div>
   );
+};
+
+ExperienceComponent.defaultProps = {
+  experiences: [],
 };
 
 export default ExperienceComponent;

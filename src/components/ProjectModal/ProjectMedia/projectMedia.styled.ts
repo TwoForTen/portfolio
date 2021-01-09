@@ -4,7 +4,6 @@ import {motion} from 'framer-motion'
 export const ProjectMedia = styled(motion.div)<{fullscreen: boolean}>`
     width: 100%;
     max-height: 100%;
-    min-height: 560px;
     height: ${(props) => props.fullscreen && '100%'};
     position: relative;
     display: flex;

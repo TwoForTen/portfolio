@@ -144,7 +144,7 @@ const ExperienceDescription: React.FC<{ description: string }> = ({
     <>
       {!fullDescription ? (
         <div>
-          <ReactMarkdown>
+          <ReactMarkdown allowDangerousHtml>
             {description
               .split(' ')
               .slice(0, MAX_DESCRIPTION)
@@ -156,7 +156,7 @@ const ExperienceDescription: React.FC<{ description: string }> = ({
           </ReadMoreButton>
         </div>
       ) : (
-        <ReactMarkdown>{description}</ReactMarkdown>
+        <ReactMarkdown allowDangerousHtml>{description}</ReactMarkdown>
       )}
     </>
   );

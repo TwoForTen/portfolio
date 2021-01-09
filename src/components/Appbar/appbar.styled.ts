@@ -43,9 +43,10 @@ export const MobileNavigation = styled.div`
   }
 `
 
-export const NavButton = styled.p<{primary?: boolean}>`
+export const NavButton = styled.a<{primary?: boolean}>`
   margin-right: 30px;
   color: ${(props) => props.primary ? props.theme.colors.primary : props.theme.colors.darkText};
+  text-decoration: none;
 `
 
 export const ToggleDropdown = styled.button<{active: boolean}>`

@@ -94,21 +94,24 @@ const Home: React.FC<Props> = ({ data }): JSX.Element => {
             <Trans>{`projects`}</Trans>
           </Typography>
           <ProjectContainer>
-            {projects.map((project: Project) => {
-              return (
-                <ProjectComponent
-                  onClick={() => openProjectModal(project)}
-                  project={project}
-                  key={project.id}
-                />
-              );
-            })}
+            {projects &&
+              projects.map((project: Project) => {
+                return (
+                  <ProjectComponent
+                    onClick={() => openProjectModal(project)}
+                    project={project}
+                    key={project.id}
+                  />
+                );
+              })}
           </ProjectContainer>
         </section>
         <section id="about_me" style={{ marginTop: '50px' }}>
           <AboutMeGrid>
             <BasicInfo />
-            <Experience experiences={[...experiences].reverse()} />
+            <Experience
+              experiences={experiences && [...experiences].reverse()}
+            />
           </AboutMeGrid>
         </section>
         {projectModalStatus.open && (

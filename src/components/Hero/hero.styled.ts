@@ -1,29 +1,44 @@
 import styled, {keyframes} from 'styled-components';
-import heroimg from '../../assets/hero.jpg';
+import heroimg from '../../../static/hero.jpg';
 import { motion } from 'framer-motion'
 
 export const HeroContainer = styled.div`
-    height: 85vh;
+    /* height: 60vh; */
+    max-height: 100vh;
     width: 100vw;
     overflow: hidden;
-    background-image: ${`url(${heroimg})`};
+    /* background-image: ${`url(${heroimg})`};
     background-position: center;
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size: cover; */
+    /* background: #f7fdff; */
+    background: #fff;
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    padding: 0 20px;
+    padding: 60px 20px;
+`
+
+export const HeroArt = styled.img`
+    height: 400px;
+    width: auto;
+    margin: 0px 40px;
+    @media screen and (max-width: 768px) {
+        margin: 0;
+        height: 300px;
+    }
 `
 
 export const HeroText = styled.div`
     display: flex;
     flex-direction: column;
-    margin-left: 15vw;
+    /* margin-left: 15vw; */
     position: relative;
+    margin: 0px 40px;
 
     @media screen and (max-width: 768px) {
-        margin-left: 0;
+        margin: 0;
     }
 `
 

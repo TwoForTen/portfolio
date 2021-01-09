@@ -48,17 +48,17 @@ const Appbar: React.FC<AppbarProps> = ({ setDrawerOpen }) => {
       transition={{ duration: 0.8, type: 'spring', damping: 10 }}
     >
       <DesktopNavigation>
-        <NavButton>
-          <a href="#projects">
-            <Trans>{`appbar.work`}</Trans>
-          </a>
+        <NavButton href="#projects">
+          <Trans>{`appbar.work`}</Trans>
         </NavButton>
-        <NavButton>
-          <a href="#about_me">
-            <Trans>{`appbar.about_me`}</Trans>
-          </a>
+        <NavButton href="#about_me">
+          <Trans>{`appbar.about_me`}</Trans>
         </NavButton>
-        <NavButton primary>
+        <NavButton
+          primary
+          target="_blank"
+          href={`${process.env.GATSBY_API_URL}/uploads/CV_Noel_Denis_Rostohar_5178bf9631.pdf`}
+        >
           <strong>
             <Trans>{`appbar.download_resume`}</Trans>
           </strong>
@@ -69,7 +69,7 @@ const Appbar: React.FC<AppbarProps> = ({ setDrawerOpen }) => {
           active={toggleLang}
         >
           <Typography variant="span">{language.toUpperCase()}</Typography>
-          <Flag src={require(`../../assets/${language}.png`)} />
+          <Flag src={require(`../../../static/${language}.png`)} />
 
           {toggleLang && (
             <LangDropdown>
@@ -77,7 +77,7 @@ const Appbar: React.FC<AppbarProps> = ({ setDrawerOpen }) => {
                 return (
                   <LocaleButton
                     value={lang}
-                    src={require(`../../assets/${lang}.png`)}
+                    src={require(`../../../static/${lang}.png`)}
                     onClick={() => changeLocale(lang)}
                     key={lang}
                   />

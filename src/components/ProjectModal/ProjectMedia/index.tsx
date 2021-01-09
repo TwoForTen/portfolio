@@ -38,6 +38,9 @@ const ProjectMediaComponent: React.FC<ProjectMediaProps> = ({
             color="#fff"
             cursor="pointer"
             visibility={mediaIndex !== 0 ? 'visible' : 'hidden'}
+            style={{
+              filter: 'drop-shadow(0px 0px 1px rgba(0,0,0,0.5))',
+            }}
           />
           <IoIosArrowForward
             onClick={swipeRight}
@@ -45,6 +48,9 @@ const ProjectMediaComponent: React.FC<ProjectMediaProps> = ({
             color="#fff"
             cursor="pointer"
             visibility={mediaIndex !== media.length - 1 ? 'visible' : 'hidden'}
+            style={{
+              filter: 'drop-shadow(0px 0px 1px rgba(0,0,0,0.5))',
+            }}
           />
         </ArrowIndicatorContainer>
       )}

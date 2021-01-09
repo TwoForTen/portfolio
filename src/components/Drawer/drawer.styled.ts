@@ -18,8 +18,9 @@ export const DrawerContainer = styled.div`
      }
 `
 
-export const NavButton = styled.p<{primary?: boolean}>`
+export const NavButton = styled.a<{primary?: boolean}>`
   color: ${(props) => props.primary ? props.theme.colors.primary : props.theme.colors.darkText};
+  text-decoration: none;
   margin-bottom: 20px;
 `
 

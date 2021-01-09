@@ -26,15 +26,11 @@ const Drawer: React.FC<DrawerProps> = ({ drawerOpen, ...rest }) => {
 
   return (
     <DrawerContainer {...rest} ref={drawerRef}>
-      <NavButton>
-        <a href="#projects">
-          <Trans>{`appbar.work`}</Trans>
-        </a>
+      <NavButton href="#projects">
+        <Trans>{`appbar.work`}</Trans>
       </NavButton>
-      <NavButton>
-        <a href="#about_me">
-          <Trans>{`appbar.about_me`}</Trans>
-        </a>
+      <NavButton href="#about_me">
+        <Trans>{`appbar.about_me`}</Trans>
       </NavButton>
       <NavButton primary>
         <strong>
@@ -46,7 +42,7 @@ const Drawer: React.FC<DrawerProps> = ({ drawerOpen, ...rest }) => {
           return (
             <Flag
               key={lang}
-              src={require(`../../assets/${lang}.png`)}
+              src={require(`../../../static/${lang}.png`)}
               onClick={() => changeLocale(lang)}
             />
           );

@@ -3,11 +3,13 @@ import { useTheme } from 'styled-components';
 import { Trans } from 'gatsby-plugin-react-i18next';
 import { motion, useAnimation } from 'framer-motion';
 
-import reactIcon from '../../assets/react_icon.png';
+import reactIcon from '../../../static/react_icon.png';
+import hero from '../../../static/hero2.png';
 
 import {
   CallToAction,
   HeroContainer,
+  HeroArt,
   HeroText,
   StyleDots,
   Dot,
@@ -29,6 +31,7 @@ const Hero = () => {
 
   return (
     <HeroContainer>
+      <HeroArt src={hero} />
       <HeroText>
         <div>
           <ReactAnimation

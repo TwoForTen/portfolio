@@ -13,8 +13,7 @@ const GlobalStyle = createGlobalStyle`
         background-color: #fdfdfd;
     }
     a{
-        color: initial;
-        text-decoration: none;
+        color: ${(props) => props.theme.colors.primary};
     }
     ul{
         text-decoration: none;
