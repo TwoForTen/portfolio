@@ -16,7 +16,7 @@ module.exports = {
         // Field under which the remote schema will be accessible. You'll use this in your Gatsby query
         fieldName: "strapi",
         // Url to query from
-        url: "http://localhost:1337/graphql",
+        url: "https://enigmatic-bayou-56360.herokuapp.com/graphql",
         refreshInterval: 60
       },
     },
