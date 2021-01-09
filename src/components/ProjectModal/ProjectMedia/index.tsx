@@ -66,16 +66,14 @@ const ProjectMediaComponent: React.FC<ProjectMediaProps> = ({
             <React.Fragment key={img.url}>
               <BackgroundBlur
                 style={{
-                  backgroundImage: `url(${
-                    process.env.GATSBY_API_URL + img.url
-                  })`,
+                  backgroundImage: `url(${img.url})`,
                 }}
               />
               <MediaContainer>
                 <Media
                   onLoad={() => setMediaLoaded(true)}
                   style={{ visibility: mediaLoaded ? 'visible' : 'hidden' }}
-                  src={process.env.GATSBY_API_URL + img.url}
+                  src={img.url}
                 />
               </MediaContainer>
             </React.Fragment>

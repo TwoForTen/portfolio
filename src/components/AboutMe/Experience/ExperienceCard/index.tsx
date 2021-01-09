@@ -62,10 +62,7 @@ const ExperienceCard: React.FC<ExperienceCardProps> = ({ experience }) => {
       <Row>
         <ImageContainer>
           {image?.url ? (
-            <Image
-              src={process.env.GATSBY_API_URL + image?.url}
-              alt="company_image"
-            />
+            <Image src={image?.url} alt="company_image" />
           ) : (
             <ImagePlaceholder />
           )}

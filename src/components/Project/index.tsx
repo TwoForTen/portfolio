@@ -50,7 +50,7 @@ const ProjectComponent: React.FC<ProjectProps> = ({ project, ...rest }) => {
       animate={animation}
     >
       <ImageContainer>
-        <Image src={process.env.GATSBY_API_URL + project.image.url} />
+        <Image src={project.image.url} />
       </ImageContainer>
       <Typography
         variant="h2"

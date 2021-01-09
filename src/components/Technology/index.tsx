@@ -26,7 +26,7 @@ const TechnologyComponent: React.FC<TechonolgyProps> = ({
       style={{ originY: 0.5, originX: 0 }}
     >
       <Row>
-        <Image src={process.env.GATSBY_API_URL + technology.tech_image.url} />
+        <Image src={technology.tech_image.url} />
         <Typography variant="small">{technology.tech_name}</Typography>
       </Row>
     </TechnologyContainer>
