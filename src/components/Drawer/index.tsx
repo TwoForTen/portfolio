@@ -32,7 +32,11 @@ const Drawer: React.FC<DrawerProps> = ({ drawerOpen, ...rest }) => {
       <NavButton href="#about_me">
         <Trans>{`appbar.about_me`}</Trans>
       </NavButton>
-      <NavButton primary>
+      <NavButton
+        primary
+        target="_blank"
+        href="https://res.cloudinary.com/imaginary-friends-app/image/upload/v1610238927/CV_Noel_Denis_Rostohar_ec450c79a6.pdf"
+      >
         <strong>
           <Trans>{`appbar.download_resume`}</Trans>
         </strong>
