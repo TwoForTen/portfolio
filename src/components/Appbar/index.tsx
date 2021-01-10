@@ -57,7 +57,7 @@ const Appbar: React.FC<AppbarProps> = ({ setDrawerOpen }) => {
         <NavButton
           primary
           target="_blank"
-          href={`${process.env.GATSBY_API_URL}/uploads/CV_Noel_Denis_Rostohar_5178bf9631.pdf`}
+          href="https://res.cloudinary.com/imaginary-friends-app/image/upload/v1610238927/CV_Noel_Denis_Rostohar_ec450c79a6.pdf"
         >
           <strong>
             <Trans>{`appbar.download_resume`}</Trans>
