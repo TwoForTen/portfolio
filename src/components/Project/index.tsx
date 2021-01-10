@@ -24,16 +24,13 @@ const ProjectComponent: React.FC<ProjectProps> = ({ project, ...rest }) => {
   const projectRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            animation.start({ opacity: 1, y: 0 });
-          }
-        });
-      },
-      { rootMargin: `0px 0px -${projectRef.current?.clientHeight}px 0px` }
-    );
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          animation.start({ opacity: 1, y: 0 });
+        }
+      });
+    });
 
     if (projectRef.current) observer.observe(projectRef.current);
 
